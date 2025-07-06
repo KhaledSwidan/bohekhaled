@@ -28,7 +28,7 @@ export default function Navbar() {
     const throttledScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          handleScroll?.();
+          handleScroll();
           ticking = false;
         });
         ticking = true;
@@ -43,7 +43,7 @@ export default function Navbar() {
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && isOpen) {
-        setIsOpen?.(false);
+        setIsOpen(false);
       }
     };
 
@@ -86,10 +86,14 @@ export default function Navbar() {
           <Logo
             scrollToSection={scrollToSection}
             handleKeyDown={handleKeyDown}
+            handleScroll={handleScroll}
+            setIsOpen={setIsOpen}
           />
 
           {/* Desktop Navigation with enhanced styling */}
           <DesktopNavigation
+            handleScroll={handleScroll}
+            setIsOpen={setIsOpen}
             activeSection={activeSection}
             handleKeyDown={handleKeyDown}
             scrollToSection={scrollToSection}
@@ -97,8 +101,9 @@ export default function Navbar() {
 
           {/* Mobile Menu */}
           <MobileMenu
-            isOpen={isOpen}
+            handleScroll={handleScroll}
             setIsOpen={setIsOpen}
+            isOpen={isOpen}
             handleKeyDown={handleKeyDown}
             scrollToSection={scrollToSection}
           />
@@ -106,6 +111,8 @@ export default function Navbar() {
 
         {/* Enhanced Mobile Navigation */}
         <MobileNavigation
+          handleScroll={handleScroll}
+          setIsOpen={setIsOpen}
           activeSection={activeSection}
           handleKeyDown={handleKeyDown}
           isOpen={isOpen}
@@ -115,6 +122,7 @@ export default function Navbar() {
 
       {/* Mobile menu overlay */}
       <MobileOverlay
+        handleScroll={handleScroll}
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         handleKeyDown={handleKeyDown}

@@ -13,8 +13,8 @@ const DesktopNavigation = ({
       {navItems.map((item, index) => (
         <motion.button
           key={item.href}
-          onClick={() => scrollToSection?.(item.href)}
-          onKeyDown={(e) => handleKeyDown?.(e, item.href)}
+          onClick={() => scrollToSection(item.href)}
+          onKeyDown={(e) => handleKeyDown(e, item.href)}
           variants={linkVariants}
           initial='inactive'
           animate={

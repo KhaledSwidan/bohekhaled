@@ -10,7 +10,7 @@ const MobileMenu = ({ isOpen, setIsOpen }: NavbarUtils) => {
         variant='outline'
         size='icon'
         className='md:hidden bg-slate-800/50 border-slate-700 hover:bg-slate-700/50 hover:border-slate-600 transition-all duration-300 focus:ring-2 focus:ring-slate-400'
-        onClick={() => setIsOpen?.(!isOpen)}
+        onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-controls='mobile-menu'
         aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -54,7 +54,7 @@ export const MobileOverlay = ({ isOpen, setIsOpen }: NavbarUtils) => {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           className='fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[-1] md:hidden'
-          onClick={() => setIsOpen?.(false)}
+          onClick={() => setIsOpen(false)}
           aria-hidden='true'
         />
       )}

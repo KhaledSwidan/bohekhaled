@@ -13,7 +13,7 @@ const Logo = ({ scrollToSection }: NavbarUtils) => {
     >
       <Button
         type='button'
-        onClick={() => scrollToSection?.('#home')}
+        onClick={() => scrollToSection('#home')}
         className='text-2xl font-bold bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent hover:from-slate-100 hover:to-slate-400 transition-all duration-300 focus:outline-none border-0 outline-0 px-2 py-1'
         aria-label='Go to homepage'
       >

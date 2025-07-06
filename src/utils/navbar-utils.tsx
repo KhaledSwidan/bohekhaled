@@ -2,13 +2,12 @@ import { navItems } from '@/db/navbar';
 import { useCallback, useState } from 'react';
 
 export interface NavbarUtils {
-  handleScroll?: () => void;
   isOpen?: boolean;
   isScrolled?: boolean;
   isVisible?: boolean;
   activeSection?: string;
-  setIsOpen?: (isOpen: boolean) => void;
-  // Make these required for proper functionality
+  handleScroll: () => void;
+  setIsOpen: (isOpen: boolean) => void;
   handleKeyDown: (e: React.KeyboardEvent, href: string) => void;
   scrollToSection: (href: string) => void;
 }
