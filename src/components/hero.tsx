@@ -46,15 +46,15 @@ export default function Hero() {
 
       <section
         id='home'
-        className='min-h-screen flex items-center justify-center relative overflow-hidden'
+        className='min-h-screen flex items-center justify-center relative overflow-hidden bg-slate-900'
       >
         {/* Background Animation */}
         <div className='absolute inset-0 -z-10'>
-          <div className='absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-blue-500/10' />
+          <div className='absolute inset-0 bg-gradient-to-br from-slate-800/20 via-transparent to-slate-700/20' />
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className='absolute w-2 h-2 bg-primary/20 rounded-full'
+              className='absolute w-2 h-2 bg-slate-400/20 rounded-full'
               animate={{
                 x: [0, Math.random() * 100, 0],
                 y: [0, Math.random() * 100, 0],
@@ -72,7 +72,7 @@ export default function Hero() {
           ))}
         </div>
 
-        <div className='container mx-auto px-4 sm:px-6 lg:px-8 text-center'>
+        <div className='container mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16'>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,9 +86,9 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className='w-32 h-32 mx-auto mb-8'
             >
-              <div className='w-full h-full rounded-full bg-gradient-to-br from-primary to-blue-600 p-1'>
-                <div className='w-full h-full rounded-full bg-zinc-50 flex items-center justify-center'>
-                  <span className='text-4xl font-bold text-primary'>YN</span>
+              <div className='w-full h-full rounded-full bg-gradient-to-br from-slate-600 to-slate-800 p-1'>
+                <div className='w-full h-full rounded-full bg-slate-900 flex items-center justify-center'>
+                  <span className='text-4xl font-bold text-slate-200'>YN</span>
                 </div>
               </div>
             </motion.div>
@@ -99,10 +99,10 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
-                className='text-4xl md:text-6xl lg:text-7xl font-bold'
+                className='text-4xl md:text-6xl lg:text-7xl font-bold text-slate-50'
               >
                 Hi, I'm{' '}
-                <span className='bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent'>
+                <span className='bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent'>
                   Your Name
                 </span>
               </motion.h1>
@@ -118,7 +118,7 @@ export default function Hero() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className='text-xl md:text-2xl lg:text-3xl text-muted-foreground font-medium'
+                  className='text-xl md:text-2xl lg:text-3xl text-slate-400 font-medium'
                 >
                   {titles[currentTitle]}
                 </motion.h2>
@@ -128,7 +128,7 @@ export default function Hero() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className='text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed'
+                className='text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed'
               >
                 I create beautiful, performant, and accessible web experiences
                 using modern technologies like React.js, Next.js, and
@@ -163,10 +163,10 @@ export default function Hero() {
                   rel='noopener noreferrer'
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className='p-3 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors'
+                  className='p-3 rounded-full bg-slate-800/50 hover:bg-slate-700/50 transition-colors border border-slate-700 hover:border-slate-600'
                   aria-label={label}
                 >
-                  <Icon className='w-6 h-6' />
+                  <Icon className='w-6 h-6 text-slate-300' />
                 </motion.a>
               ))}
             </motion.div>
@@ -178,11 +178,19 @@ export default function Hero() {
               transition={{ duration: 0.8, delay: 0.7 }}
               className='flex flex-col sm:flex-row gap-4 items-center justify-center'
             >
-              <Button onClick={scrollToContact} size='lg' className='group'>
+              <Button
+                onClick={scrollToContact}
+                size='lg'
+                className='group bg-slate-700 hover:bg-slate-600 text-slate-100'
+              >
                 Get In Touch
                 <Mail className='w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform' />
               </Button>
-              <Button variant='outline' size='lg' className='group'>
+              <Button
+                variant='outline'
+                size='lg'
+                className='group bg-transparent border-slate-600 text-slate-300 hover:bg-slate-800 hover:text-slate-100'
+              >
                 Download CV
                 <Download className='w-4 h-4 ml-2 group-hover:translate-y-1 transition-transform' />
               </Button>
@@ -195,7 +203,8 @@ export default function Hero() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5 }}
             onClick={scrollToAbout}
-            className='absolute bottom-8 left-1/2 transform -translate-x-1/2 text-muted-foreground hover:text-primary transition-colors'
+            className='absolute bottom-8 left-1/2 transform -translate-x-1/2 text-slate-400 hover:text-slate-200 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 rounded-full p-2'
+            aria-label='Scroll to about section'
           >
             <motion.div
               animate={{ y: [0, 10, 0] }}

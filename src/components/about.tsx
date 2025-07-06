@@ -82,7 +82,7 @@ export default function About() {
         content='about frontend developer, react developer profile, web skills, portfolio'
       />
       <Meta name='author' content='Your Name' />
-      <section id='about' className='py-20 bg-zinc-100/30'>
+      <section id='about' className='py-20 bg-slate-800/50'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             ref={ref}
@@ -96,10 +96,10 @@ export default function About() {
               variants={itemVariants}
               className='text-center space-y-4'
             >
-              <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold'>
-                About <span className='text-primary'>Me</span>
+              <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-slate-50'>
+                About <span className='text-slate-300'>Me</span>
               </h2>
-              <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+              <p className='text-lg text-slate-400 max-w-2xl mx-auto'>
                 Passionate about creating exceptional digital experiences with
                 modern web technologies
               </p>
@@ -108,8 +108,10 @@ export default function About() {
             {/* About Content */}
             <div className='grid lg:grid-cols-2 gap-12 items-center'>
               <motion.div variants={itemVariants} className='space-y-6'>
-                <h3 className='text-2xl font-semibold'>My Journey</h3>
-                <div className='space-y-4 text-muted-foreground'>
+                <h3 className='text-2xl font-semibold text-slate-200'>
+                  My Journey
+                </h3>
+                <div className='space-y-4 text-slate-400'>
                   <p>
                     I'm a passionate Frontend Developer with expertise in
                     React.js, Next.js, and modern web technologies. I love
@@ -133,13 +135,13 @@ export default function About() {
 
               <motion.div variants={itemVariants}>
                 <div className='relative'>
-                  <div className='aspect-square rounded-2xl bg-gradient-to-br from-primary/20 to-blue-600/20 p-8'>
-                    <div className='w-full h-full rounded-xl bg-zinc-50/50 backdrop-blur-sm flex items-center justify-center'>
+                  <div className='aspect-square rounded-2xl bg-gradient-to-br from-slate-700/20 to-slate-600/20 p-8'>
+                    <div className='w-full h-full rounded-xl bg-slate-800/50 backdrop-blur-sm flex items-center justify-center border border-slate-700/50'>
                       <div className='text-center space-y-4'>
-                        <div className='text-4xl font-bold text-primary'>
+                        <div className='text-4xl font-bold text-slate-200'>
                           3+
                         </div>
-                        <div className='text-sm text-muted-foreground'>
+                        <div className='text-sm text-slate-400'>
                           Years of Experience
                         </div>
                       </div>
@@ -151,7 +153,7 @@ export default function About() {
 
             {/* Skills Grid */}
             <motion.div variants={itemVariants}>
-              <h3 className='text-2xl font-semibold text-center mb-8'>
+              <h3 className='text-2xl font-semibold text-center mb-8 text-slate-200'>
                 Skills & Technologies
               </h3>
               <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -162,19 +164,21 @@ export default function About() {
                     whileHover={{ scale: 1.02 }}
                     className='group'
                   >
-                    <Card className='h-full transition-all duration-300 hover:shadow-lg border-zinc-300/50 hover:border-purple-500/50'>
+                    <Card className='h-full transition-all duration-300 hover:shadow-lg bg-slate-800/50 border-slate-700/50 hover:border-slate-600/50'>
                       <CardContent className='p-6 space-y-4'>
                         <div className='flex items-center space-x-3'>
-                          <div className='p-2 rounded-lg bg-primary/10 group-hover:bg-primary/20 transition-colors'>
-                            <skill.icon className='w-5 h-5 text-primary' />
+                          <div className='p-2 rounded-lg bg-slate-700/50 group-hover:bg-slate-600/50 transition-colors'>
+                            <skill.icon className='w-5 h-5 text-slate-300' />
                           </div>
-                          <h4 className='font-semibold'>{skill.category}</h4>
+                          <h4 className='font-semibold text-slate-200'>
+                            {skill.category}
+                          </h4>
                         </div>
                         <div className='flex flex-wrap gap-2'>
                           {skill.items.map((item) => (
                             <span
                               key={item}
-                              className='px-3 py-1 text-xs rounded-full bg-zinc-100 text-muted-foreground'
+                              className='px-3 py-1 text-xs rounded-full bg-slate-700/50 text-slate-300'
                             >
                               {item}
                             </span>

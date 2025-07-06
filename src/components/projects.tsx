@@ -122,7 +122,7 @@ export default function Projects() {
   const otherProjects = projects.filter((project) => !project.featured);
 
   return (
-    <section id='projects' className='py-20'>
+    <section id='projects' className='py-20 bg-zinc-900'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <motion.div
           ref={ref}
@@ -133,10 +133,10 @@ export default function Projects() {
         >
           {/* Section Header */}
           <motion.div variants={itemVariants} className='text-center space-y-4'>
-            <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold'>
-              Featured <span className='text-primary'>Projects</span>
+            <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-zinc-50'>
+              Featured <span className='text-zinc-300'>Projects</span>
             </h2>
-            <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+            <p className='text-lg text-zinc-400 max-w-2xl mx-auto'>
               A showcase of my recent work and side projects
             </p>
           </motion.div>
@@ -152,7 +152,7 @@ export default function Projects() {
                 }`}
               >
                 <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                  <Card className='overflow-hidden group hover:shadow-xl transition-all duration-300'>
+                  <Card className='overflow-hidden group hover:shadow-xl transition-all duration-300 bg-zinc-800/50 border-zinc-700/50'>
                     <div className='relative overflow-hidden'>
                       <img
                         src={project.image}
@@ -191,15 +191,21 @@ export default function Projects() {
                   }`}
                 >
                   <div>
-                    <h3 className='text-2xl font-bold mb-3'>{project.title}</h3>
-                    <p className='text-muted-foreground leading-relaxed'>
+                    <h3 className='text-2xl font-bold mb-3 text-zinc-100'>
+                      {project.title}
+                    </h3>
+                    <p className='text-zinc-400 leading-relaxed'>
                       {project.description}
                     </p>
                   </div>
 
                   <div className='flex flex-wrap gap-2'>
                     {project.technologies.map((tech) => (
-                      <Badge key={tech} variant='secondary'>
+                      <Badge
+                        key={tech}
+                        variant='secondary'
+                        className='bg-zinc-700/50 text-zinc-300'
+                      >
                         {tech}
                       </Badge>
                     ))}
@@ -234,7 +240,7 @@ export default function Projects() {
 
           {/* Other Projects Grid */}
           <motion.div variants={itemVariants}>
-            <h3 className='text-2xl font-semibold text-center mb-8'>
+            <h3 className='text-2xl font-semibold text-center mb-8 text-zinc-200'>
               Other Notable Projects
             </h3>
             <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
@@ -245,7 +251,7 @@ export default function Projects() {
                   whileHover={{ y: -5 }}
                   className='group'
                 >
-                  <Card className='h-full hover:shadow-lg transition-all duration-300'>
+                  <Card className='h-full hover:shadow-lg transition-all duration-300 bg-zinc-800/50 border-zinc-700/50'>
                     <CardHeader className='p-0'>
                       <div className='relative overflow-hidden rounded-t-lg'>
                         <img
@@ -256,10 +262,10 @@ export default function Projects() {
                       </div>
                     </CardHeader>
                     <CardContent className='p-6'>
-                      <h4 className='font-semibold text-lg mb-2'>
+                      <h4 className='font-semibold text-lg mb-2 text-zinc-100'>
                         {project.title}
                       </h4>
-                      <p className='text-muted-foreground text-sm mb-4 line-clamp-3'>
+                      <p className='text-zinc-400 text-sm mb-4 line-clamp-3'>
                         {project.description}
                       </p>
                       <div className='flex flex-wrap gap-1'>
@@ -267,13 +273,16 @@ export default function Projects() {
                           <Badge
                             key={tech}
                             variant='outline'
-                            className='text-xs'
+                            className='text-xs bg-zinc-700/30 text-zinc-300 border-zinc-600'
                           >
                             {tech}
                           </Badge>
                         ))}
                         {project.technologies.length > 3 && (
-                          <Badge variant='outline' className='text-xs'>
+                          <Badge
+                            variant='outline'
+                            className='text-xs bg-zinc-700/30 text-zinc-300 border-zinc-600'
+                          >
                             +{project.technologies.length - 3}
                           </Badge>
                         )}

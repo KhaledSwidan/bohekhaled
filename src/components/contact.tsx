@@ -90,21 +90,8 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      // Simulate form submission - replace with actual implementation
       await new Promise((resolve) => setTimeout(resolve, 2000));
-
       console.log(values);
-
-      // Here you would typically use EmailJS or FormSubmit
-      // Example with FormSubmit:
-      // const response = await fetch('https://formsubmit.co/your-email@example.com', {
-      //   method: 'POST',
-      //   headers: {
-      //     'Content-Type': 'application/json',
-      //   },
-      //   body: JSON.stringify(values),
-      // });
-
       toast.success("Message sent successfully! I'll get back to you soon.");
       form.reset();
     } catch (error) {
@@ -123,7 +110,7 @@ export default function Contact() {
         content="Get in touch with me via this contact form. I'm open to new opportunities, projects, and collaborations."
       />
       <Meta name='author' content='Your Name' />
-      <section id='contact' className='py-20 bg-zinc-100/30'>
+      <section id='contact' className='py-20 bg-stone-900'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
           <motion.div
             ref={ref}
@@ -137,10 +124,10 @@ export default function Contact() {
               variants={itemVariants}
               className='text-center space-y-4'
             >
-              <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold'>
-                Get In <span className='text-primary'>Touch</span>
+              <h2 className='text-3xl md:text-4xl lg:text-5xl font-bold text-stone-50'>
+                Get In <span className='text-stone-300'>Touch</span>
               </h2>
-              <p className='text-lg text-muted-foreground max-w-2xl mx-auto'>
+              <p className='text-lg text-stone-400 max-w-2xl mx-auto'>
                 Let's discuss your next project or just say hello!
               </p>
             </motion.div>
@@ -148,9 +135,11 @@ export default function Contact() {
             <div className='grid lg:grid-cols-2 gap-12'>
               {/* Contact Form */}
               <motion.div variants={itemVariants}>
-                <Card>
+                <Card className='bg-stone-800/50 border-stone-700/50'>
                   <CardHeader>
-                    <CardTitle>Send me a message</CardTitle>
+                    <CardTitle className='text-stone-100'>
+                      Send me a message
+                    </CardTitle>
                   </CardHeader>
                   <CardContent>
                     <Form {...form}>
@@ -164,9 +153,15 @@ export default function Contact() {
                             name='name'
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Name</FormLabel>
+                                <FormLabel className='text-stone-200'>
+                                  Name
+                                </FormLabel>
                                 <FormControl>
-                                  <Input placeholder='Your name' {...field} />
+                                  <Input
+                                    placeholder='Your name'
+                                    {...field}
+                                    className='bg-stone-700/50 border-stone-600 text-stone-100'
+                                  />
                                 </FormControl>
                                 <FormMessage />
                               </FormItem>
@@ -177,11 +172,14 @@ export default function Contact() {
                             name='email'
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel>Email</FormLabel>
+                                <FormLabel className='text-stone-200'>
+                                  Email
+                                </FormLabel>
                                 <FormControl>
                                   <Input
                                     placeholder='your.email@example.com'
                                     {...field}
+                                    className='bg-stone-700/50 border-stone-600 text-stone-100'
                                   />
                                 </FormControl>
                                 <FormMessage />
@@ -194,11 +192,14 @@ export default function Contact() {
                           name='subject'
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Subject</FormLabel>
+                              <FormLabel className='text-stone-200'>
+                                Subject
+                              </FormLabel>
                               <FormControl>
                                 <Input
                                   placeholder="Let's work together!"
                                   {...field}
+                                  className='bg-stone-700/50 border-stone-600 text-stone-100'
                                 />
                               </FormControl>
                               <FormMessage />
@@ -210,11 +211,13 @@ export default function Contact() {
                           name='message'
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel>Message</FormLabel>
+                              <FormLabel className='text-stone-200'>
+                                Message
+                              </FormLabel>
                               <FormControl>
                                 <Textarea
                                   placeholder='Tell me about your project...'
-                                  className='min-h-[120px]'
+                                  className='min-h-[120px] bg-stone-700/50 border-stone-600 text-stone-100'
                                   {...field}
                                 />
                               </FormControl>
@@ -248,8 +251,10 @@ export default function Contact() {
               {/* Contact Information */}
               <motion.div variants={itemVariants} className='space-y-8'>
                 <div>
-                  <h3 className='text-2xl font-semibold mb-6'>Let's connect</h3>
-                  <p className='text-muted-foreground mb-8'>
+                  <h3 className='text-2xl font-semibold mb-6 text-stone-200'>
+                    Let's connect
+                  </h3>
+                  <p className='text-stone-400 mb-8'>
                     I'm always interested in hearing about new opportunities and
                     projects. Whether you're a company looking to hire, or
                     you're someone looking to collaborate, I'd love to hear from
@@ -271,14 +276,16 @@ export default function Contact() {
                           : undefined
                       }
                       whileHover={{ x: 5 }}
-                      className='flex items-center space-x-4 p-4 rounded-lg hover:bg-zinc-100/50 transition-colors group'
+                      className='flex items-center space-x-4 p-4 rounded-lg hover:bg-stone-800/50 transition-colors group'
                     >
-                      <div className='p-3 rounded-full bg-primary/10 group-hover:bg-primary/20 transition-colors'>
-                        <info.icon className='w-5 h-5 text-primary' />
+                      <div className='p-3 rounded-full bg-stone-700/50 group-hover:bg-stone-600/50 transition-colors'>
+                        <info.icon className='w-5 h-5 text-stone-300' />
                       </div>
                       <div>
-                        <h4 className='font-medium'>{info.title}</h4>
-                        <p className='text-muted-foreground'>{info.value}</p>
+                        <h4 className='font-medium text-stone-200'>
+                          {info.title}
+                        </h4>
+                        <p className='text-stone-400'>{info.value}</p>
                       </div>
                     </motion.a>
                   ))}
@@ -287,11 +294,11 @@ export default function Contact() {
                 {/* Map placeholder */}
                 <motion.div
                   variants={itemVariants}
-                  className='mt-8 h-64 rounded-lg bg-zinc-100/50 flex items-center justify-center'
+                  className='mt-8 h-64 rounded-lg bg-stone-800/50 flex items-center justify-center border border-stone-700/50'
                 >
                   <div className='text-center space-y-2'>
-                    <MapPin className='w-8 h-8 text-muted-foreground mx-auto' />
-                    <p className='text-muted-foreground'>
+                    <MapPin className='w-8 h-8 text-stone-400 mx-auto' />
+                    <p className='text-stone-400'>
                       Interactive map coming soon
                     </p>
                   </div>

@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- ✅ Essential Meta Only (SEO component will handle the rest) -->
+    <!-- ✅ Essential Meta Only -->
     <title>Khaled Swidan - Frontend Developer</title>
     <meta
       name="description"
@@ -25,228 +25,27 @@
     <meta http-equiv="X-Frame-Options" content="DENY" />
     <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
 
-    <!-- ✅ Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- ✅ Custom CSS for animations and body styles -->
-    <style>
-      @keyframes spin {
-        0% {
-          transform: rotate(0deg);
-        }
-        100% {
-          transform: rotate(360deg);
-        }
-      }
-
-      @keyframes pulse-glow {
-        0%,
-        100% {
-          opacity: 0.8;
-          box-shadow: 0 0 20px rgba(168, 162, 158, 0.3);
-        }
-        50% {
-          opacity: 1;
-          box-shadow: 0 0 30px rgba(168, 162, 158, 0.5);
-        }
-      }
-
-      @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px);
-        }
-        50% {
-          transform: translateY(-10px);
-        }
-      }
-
-      @keyframes fadeInUp {
-        0% {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        100% {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .loading-spinner {
-        animation: spin 1.5s linear infinite;
-      }
-
-      .pulse-glow {
-        animation: pulse-glow 2s ease-in-out infinite;
-      }
-
-      .float-animation {
-        animation: float 3s ease-in-out infinite;
-      }
-
-      .fade-in-up {
-        animation: fadeInUp 0.8s ease-out forwards;
-      }
-
-      .loading-dots::after {
-        content: '';
-        animation: dots 2s infinite;
-      }
-
-      @keyframes dots {
-        0%,
-        20% {
-          content: '';
-        }
-        40% {
-          content: '.';
-        }
-        60% {
-          content: '..';
-        }
-        80%,
-        100% {
-          content: '...';
-        }
-      }
-
-      /* Glassmorphism effect */
-      .glass-effect {
-        background: rgba(39, 39, 42, 0.8);
-        backdrop-filter: blur(16px);
-        border: 1px solid rgba(168, 162, 158, 0.1);
-      }
-
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
-          sans-serif;
-        overflow: hidden;
-      }
-
-      #root {
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-
-      #root.loaded {
-        opacity: 1;
-      }
-    </style>
+    <!-- ✅ Critical CSS -->
+    <link rel="stylesheet" href="/styles/critical.css" />
   </head>
   <body>
-    <!-- ✅ Modern Loading Screen -->
-    <div
-      id="loading-screen"
-      class="fixed inset-0 bg-gradient-to-br from-zinc-900 via-stone-900 to-zinc-800 flex items-center justify-center z-50 transition-opacity duration-500"
-    >
-      <!-- Background Pattern -->
-      <div
-        class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(168,162,158,0.1)_0%,transparent_50%)] opacity-50"
-      ></div>
-
-      <!-- Floating Particles -->
-      <div
-        class="absolute top-1/4 left-1/4 w-2 h-2 bg-stone-400/20 rounded-full float-animation"
-        style="animation-delay: 0s"
-      ></div>
-      <div
-        class="absolute top-1/3 right-1/3 w-1 h-1 bg-zinc-300/30 rounded-full float-animation"
-        style="animation-delay: 1s"
-      ></div>
-      <div
-        class="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-stone-300/25 rounded-full float-animation"
-        style="animation-delay: 2s"
-      ></div>
-
-      <!-- Main Loading Content -->
-      <div class="relative z-10">
-        <!-- Glass Container -->
-        <div
-          class="glass-effect rounded-3xl p-8 sm:p-12 text-center max-w-sm mx-4 shadow-2xl"
-        >
-          <!-- Loading Spinner -->
-          <div class="relative mb-8">
-            <div
-              class="loading-spinner w-16 h-16 border-4 border-stone-700/30 border-t-stone-400 rounded-full mx-auto pulse-glow"
-            ></div>
-            <!-- Inner glow ring -->
-            <div
-              class="absolute inset-0 w-16 h-16 border-2 border-stone-500/20 rounded-full mx-auto animate-ping"
-            ></div>
-          </div>
-
-          <!-- Loading Text -->
-          <div class="space-y-3">
-            <h2
-              class="text-xl sm:text-2xl font-bold text-stone-200 fade-in-up tracking-wide"
-            >
-              Loading Portfolio
-            </h2>
-            <p
-              class="text-stone-400 text-sm sm:text-base fade-in-up loading-dots"
-              style="animation-delay: 0.3s"
-            >
-              Please wait
-            </p>
-          </div>
-
-          <!-- Progress Bar -->
-          <div
-            class="mt-6 w-full bg-stone-800/50 rounded-full h-1.5 overflow-hidden"
-          >
-            <div
-              class="bg-gradient-to-r from-stone-400 to-zinc-300 h-full rounded-full animate-pulse"
-              style="width: 65%"
-            ></div>
-          </div>
-
-          <!-- Loading Stats -->
-          <div
-            class="mt-4 flex justify-center space-x-4 text-xs text-stone-500"
-          >
-            <span class="fade-in-up" style="animation-delay: 0.6s"
-              >✨ Optimizing</span
-            >
-            <span class="fade-in-up" style="animation-delay: 0.9s"
-              >🚀 Loading</span
-            >
-            <span class="fade-in-up" style="animation-delay: 1.2s"
-              >⚡ Ready</span
-            >
-          </div>
-        </div>
+    <!-- ✅ Loading Screen -->
+    <div id="loading-screen">
+      <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <h2>Loading Portfolio</h2>
+        <p class="loading-dots">Please wait</p>
       </div>
     </div>
 
-    <!-- ✅ Enhanced Fallback for JS disabled -->
+    <!-- ✅ Fallback for JS disabled -->
     <noscript>
-      <div
-        class="fixed inset-0 bg-gradient-to-br from-zinc-900 via-stone-900 to-zinc-800 flex items-center justify-center font-sans text-center z-50"
-      >
-        <div
-          class="glass-effect rounded-3xl p-8 sm:p-12 border border-stone-600/20 max-w-md mx-4 shadow-2xl"
-        >
-          <div class="text-6xl mb-6">⚡</div>
-          <h1 class="text-2xl sm:text-3xl font-bold mb-6 text-stone-200">
-            JavaScript Required
-          </h1>
-          <p class="mb-4 text-stone-400 leading-relaxed">
-            This modern portfolio requires JavaScript to function properly and
-            deliver the best experience.
-          </p>
-          <p class="text-stone-500 text-sm mb-6">
-            Please enable JavaScript in your browser settings to continue.
-          </p>
-          <div
-            class="bg-stone-800/50 rounded-xl p-4 border border-stone-700/30"
-          >
-            <p class="text-xs text-stone-400">
-              💡 <strong>Need help?</strong> Search for "enable JavaScript" +
-              your browser name
-            </p>
-          </div>
+      <div class="noscript-fallback">
+        <div class="noscript-content">
+          <div class="noscript-icon">⚡</div>
+          <h1>JavaScript Required</h1>
+          <p>This portfolio requires JavaScript to function properly.</p>
+          <p>Please enable JavaScript in your browser settings.</p>
         </div>
       </div>
     </noscript>
@@ -254,6 +53,8 @@
     <!-- ✅ App Root -->
     <div id="root"></div>
 
+    <!-- ✅ Scripts -->
     <script type="module" src="/src/main.tsx"></script>
+    <script src="/scripts/performance.js"></script>
   </body>
 </html>

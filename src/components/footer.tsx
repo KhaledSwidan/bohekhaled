@@ -23,15 +23,15 @@ export default function Footer() {
   };
 
   return (
-    <footer className='bg-zinc-100/30 border-t border-zinc-300'>
+    <footer className='bg-slate-800/50 border-t border-slate-700'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12'>
         <div className='grid md:grid-cols-4 gap-8'>
           {/* Brand */}
           <div className='space-y-4'>
-            <h3 className='text-2xl font-bold bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent'>
+            <h3 className='text-2xl font-bold bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent'>
               Portfolio
             </h3>
-            <p className='text-muted-foreground text-sm'>
+            <p className='text-slate-400 text-sm'>
               Frontend Developer passionate about creating exceptional digital
               experiences with modern web technologies.
             </p>
@@ -39,13 +39,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className='font-semibold mb-4'>Quick Links</h4>
+            <h4 className='font-semibold mb-4 text-slate-200'>Quick Links</h4>
             <ul className='space-y-2'>
               {quickLinks.map((link) => (
                 <li key={link.name}>
                   <button
                     onClick={() => scrollToSection(link.href)}
-                    className='text-muted-foreground hover:text-primary transition-colors text-sm'
+                    className='text-slate-400 hover:text-slate-200 transition-colors text-sm'
                   >
                     {link.name}
                   </button>
@@ -56,8 +56,8 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className='font-semibold mb-4'>Services</h4>
-            <ul className='space-y-2 text-sm text-muted-foreground'>
+            <h4 className='font-semibold mb-4 text-slate-200'>Services</h4>
+            <ul className='space-y-2 text-sm text-slate-400'>
               <li>Frontend Development</li>
               <li>React.js Applications</li>
               <li>TypeScript Development</li>
@@ -67,7 +67,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h4 className='font-semibold mb-4'>Connect</h4>
+            <h4 className='font-semibold mb-4 text-slate-200'>Connect</h4>
             <div className='flex space-x-4'>
               {socialLinks.map((social) => (
                 <motion.a
@@ -77,21 +77,21 @@ export default function Footer() {
                   rel='noopener noreferrer'
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className='p-2 rounded-full bg-primary/10 hover:bg-primary/20 transition-colors'
+                  className='p-2 rounded-full bg-slate-700/50 hover:bg-slate-600/50 transition-colors'
                   aria-label={social.label}
                 >
-                  <social.icon className='w-4 h-4' />
+                  <social.icon className='w-4 h-4 text-slate-300' />
                 </motion.a>
               ))}
             </div>
           </div>
         </div>
 
-        <div className='border-t border-zinc-300 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0'>
-          <p className='text-muted-foreground text-sm'>
+        <div className='border-t border-slate-700 mt-8 pt-8 flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0'>
+          <p className='text-slate-400 text-sm'>
             © {new Date().getFullYear()} Your Name. All rights reserved.
           </p>
-          <p className='text-muted-foreground text-sm flex items-center'>
+          <p className='text-slate-400 text-sm flex items-center'>
             Made with <Heart className='w-4 h-4 mx-1 text-red-500' /> using
             React & TypeScript
           </p>
