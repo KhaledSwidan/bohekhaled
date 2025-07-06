@@ -1,3 +1,5 @@
+// src/lib/seo-meta.tsx
+
 import { useEffect } from 'react';
 import { Meta, Link } from 'react-head';
 

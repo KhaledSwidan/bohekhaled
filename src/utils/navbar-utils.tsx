@@ -1,3 +1,5 @@
+'use client';
+
 import { useCallback, useState, useEffect } from 'react';
 
 export interface NavbarUtils {
@@ -13,44 +15,113 @@ const useNavbarUtils = (): NavbarUtils => {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
-  const scrollToSection = useCallback((href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      const offsetTop =
-        element.getBoundingClientRect().top + window.pageYOffset - 80;
-      window.scrollTo({
-        top: offsetTop,
-        behavior: 'smooth',
-      });
-    }
-    setIsOpen(false);
-  }, []);
+  // More precise scroll function with debugging
+  const scrollToSection = useCallback(
+    (href: string) => {
+      console.log('Scrolling to:', href);
 
-  // Simplified scroll handler
+      // Close mobile menu first
+      setIsOpen(false);
+
+      // Small delay to ensure menu closes before scrolling
+      setTimeout(
+        () => {
+          const element = document.querySelector(href);
+          if (element) {
+            // Get all measurements
+            const navbar = document.querySelector('nav');
+            const navbarRect = navbar?.getBoundingClientRect();
+            const navbarHeight = navbarRect?.height || 80;
+
+            console.log('Navbar height:', navbarHeight);
+
+            // Get element position
+            const elementRect = element.getBoundingClientRect();
+            const elementTop = elementRect.top + window.pageYOffset;
+
+            console.log('Element top:', elementTop);
+            console.log('Current scroll:', window.pageYOffset);
+
+            // Calculate target position with generous offset
+            const offset = navbarHeight - 40; // Increased padding for better clearance
+            const targetPosition = elementTop - offset;
+
+            console.log('Target position:', targetPosition);
+            console.log('Offset used:', offset);
+
+            // Force scroll with multiple methods
+            try {
+              // Method 1: scrollTo
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth',
+              });
+
+              // Fallback method after a short delay
+              setTimeout(() => {
+                const currentScroll = window.pageYOffset;
+                console.log('After scroll - Current position:', currentScroll);
+
+                // If we're not close to target, try again
+                if (Math.abs(currentScroll - targetPosition) > 10) {
+                  console.log("Scroll didn't reach target, trying again...");
+                  window.scrollTo({
+                    top: targetPosition,
+                    behavior: 'auto', // Use instant scroll as fallback
+                  });
+                }
+              }, 1000);
+            } catch (error) {
+              console.error('Scroll error:', error);
+              // Ultimate fallback
+              window.scrollTo(0, targetPosition);
+            }
+          } else {
+            console.error('Element not found:', href);
+          }
+        },
+        isOpen ? 300 : 0
+      );
+    },
+    [isOpen]
+  );
+
+  // Enhanced scroll handler
   useEffect(() => {
     let ticking = false;
 
     const handleScroll = () => {
       if (!ticking) {
         requestAnimationFrame(() => {
-          const currentScrollY = window.scrollY;
+          const currentScrollY = window.pageYOffset;
           setIsScrolled(currentScrollY > 50);
 
-          // Simple active section detection
+          // Section detection
           const sections = ['home', 'about', 'projects', 'contact'];
-          const currentSection = sections.find((section) => {
+          const navbar = document.querySelector('nav');
+          const navbarHeight = navbar?.getBoundingClientRect().height || 80;
+
+          let currentSection = 'home';
+          let minDistance = Number.POSITIVE_INFINITY;
+
+          // Find the section closest to the top of the viewport
+          sections.forEach((section) => {
             const element = document.getElementById(section);
             if (element) {
               const rect = element.getBoundingClientRect();
-              return rect.top <= 100 && rect.bottom >= 100;
+              const distanceFromTop = Math.abs(rect.top - navbarHeight);
+
+              if (
+                rect.top <= navbarHeight + 100 &&
+                distanceFromTop < minDistance
+              ) {
+                minDistance = distanceFromTop;
+                currentSection = section;
+              }
             }
-            return false;
           });
 
-          if (currentSection) {
-            setActiveSection(currentSection);
-          }
-
+          setActiveSection(currentSection);
           ticking = false;
         });
         ticking = true;
@@ -58,8 +129,34 @@ const useNavbarUtils = (): NavbarUtils => {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Handle mobile menu body scroll lock
+  useEffect(() => {
+    if (isOpen) {
+      const scrollY = window.scrollY;
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${scrollY}px`;
+      document.body.style.width = '100%';
+    } else {
+      const scrollY = document.body.style.top;
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      if (scrollY) {
+        window.scrollTo(0, Number.parseInt(scrollY || '0') * -1);
+      }
+    }
+
+    return () => {
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+    };
+  }, [isOpen]);
 
   return {
     isOpen,

@@ -1,8 +1,8 @@
 import { Suspense, lazy } from 'react';
 import { Toaster } from '@/components/ui/sonner';
-import SEOMeta from '@/components/seo-meta';
+import SEOMeta from '@/lib/seo-meta';
 import Navbar from '@/pages/navbar';
-import Hero from '@/components/hero';
+import Hero from '@/pages/hero';
 import ScrollToTop from '@/components/scroll-to-top';
 import ErrorBoundary from '@/components/error-boundary';
 import { SectionLoader } from './components/loading-spinner';

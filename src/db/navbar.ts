@@ -1,3 +1,5 @@
+// src/db/navbar.ts
+
 export const navItems = [
   { name: 'Home', href: '#home' },
   { name: 'About', href: '#about' },
