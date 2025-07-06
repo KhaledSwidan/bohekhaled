@@ -5,6 +5,64 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Mobile touch scrolling fix */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Ensure smooth scrolling works on mobile */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Mobile Safari specific fixes */
+@supports (-webkit-touch-callout: none) {
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Fix for mobile menu scrolling issues */
+.mobile-menu-open {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+/* Prevent iOS bounce scroll */
+@media screen and (max-width: 768px) {
+  body {
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Fix for mobile viewport height */
+  html,
+  body {
+    height: 100%;
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
+/* Alternative smooth scroll for better mobile support */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fallback for browsers that don't support scroll-behavior */
+@supports not (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 @layer base {
   :root {
     --background: 222.2 84% 4.9%;
