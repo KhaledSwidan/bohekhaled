@@ -20,14 +20,14 @@ const projects = [
   },
   {
     id: 2,
-    title: 'Task Management App',
+    title: 'Todo List App',
     description:
-      'A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.',
+      'A simple Todo List App built with Vite, React, TypeScript, and Zustand. It features local storage for todo items, and a responsive UI using pure CSS.',
     image:
       'https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=600',
-    technologies: ['React.js', 'Node.js', 'Socket.io', 'MongoDB', 'Redux'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
+    technologies: ['React.js', 'Typescript', 'Zustand', 'Pure CSS'],
+    liveUrl: 'https://khaledswidan.github.io/zustand/',
+    githubUrl: 'https://github.com/KhaledSwidan/zustand',
     featured: true,
   },
   {
