@@ -20,7 +20,7 @@ const Logo = ({ scrollToSection }: LogoProps) => {
         className='text-2xl font-bold bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent hover:from-slate-100 hover:to-slate-400 transition-all duration-300 p-2 border-0'
         aria-label='Go to homepage'
       >
-        BoheK
+        &lt;BoheK /&gt;
       </Button>
     </motion.div>
   );

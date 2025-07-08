@@ -1,54 +1,48 @@
-// components/error-boundary.tsx
-import React, { Component, type ReactNode } from 'react';
+import {
+  type FallbackProps,
+  ErrorBoundary as ReactErrorBoundary,
+} from 'react-error-boundary';
+import { AlertCircle, RefreshCw } from 'lucide-react';
+
+function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
+  return (
+    <main className='min-h-screen flex items-center justify-center bg-background px-4'>
+      <section className='text-center space-y-6 max-w-md w-full'>
+        <div className='flex justify-center text-red-600'>
+          <AlertCircle size={48} />
+        </div>
+        <h1 className='text-3xl font-bold text-foreground'>
+          Oops! Something went wrong.
+        </h1>
+        <p className='text-muted-foreground'>
+          {error.message ||
+            'An unexpected error occurred. Please try refreshing the page.'}
+        </p>
+        <button
+          onClick={resetErrorBoundary}
+          className='inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl shadow hover:opacity-90 transition-all'
+        >
+          <RefreshCw size={18} />
+          Try Again
+        </button>
+      </section>
+    </main>
+  );
+}
 
 interface Props {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
-interface State {
-  hasError: boolean;
-  error?: Error;
+export function ErrorBoundary({ children }: Props) {
+  return (
+    <ReactErrorBoundary
+      FallbackComponent={ErrorFallback}
+      onReset={() => {
+        window.location.reload();
+      }}
+    >
+      {children}
+    </ReactErrorBoundary>
+  );
 }
-
-class ErrorBoundary extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
-    this.state = { hasError: false };
-  }
-
-  static getDerivedStateFromError(error: Error): State {
-    return { hasError: true, error };
-  }
-
-  componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
-    console.error('Error caught by boundary:', error, errorInfo);
-  }
-
-  render() {
-    if (this.state.hasError) {
-      return (
-        <div className='min-h-screen flex items-center justify-center bg-zinc-900'>
-          <div className='text-center p-8 max-w-md mx-auto'>
-            <h2 className='text-2xl font-bold mb-4 text-red-600'>
-              Something went wrong
-            </h2>
-            <p className='text-zinc-400 mb-6'>
-              We're sorry, but something unexpected happened. Please try
-              refreshing the page.
-            </p>
-            <button
-              onClick={() => window.location.reload()}
-              className='bg-zinc-50 text-zinc-900 px-6 py-2 rounded-lg hover:opacity-90 transition-opacity'
-            >
-              Refresh Page
-            </button>
-          </div>
-        </div>
-      );
-    }
-
-    return this.props.children;
-  }
-}
-
-export default ErrorBoundary;
