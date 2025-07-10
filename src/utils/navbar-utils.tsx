@@ -18,8 +18,6 @@ const useNavbarUtils = (): NavbarUtils => {
   // More precise scroll function with debugging
   const scrollToSection = useCallback(
     (href: string) => {
-      console.log('Scrolling to:', href);
-
       // Close mobile menu first
       setIsOpen(false);
 
@@ -33,21 +31,13 @@ const useNavbarUtils = (): NavbarUtils => {
             const navbarRect = navbar?.getBoundingClientRect();
             const navbarHeight = navbarRect?.height || 80;
 
-            console.log('Navbar height:', navbarHeight);
-
             // Get element position
             const elementRect = element.getBoundingClientRect();
             const elementTop = elementRect.top + window.pageYOffset;
 
-            console.log('Element top:', elementTop);
-            console.log('Current scroll:', window.pageYOffset);
-
             // Calculate target position with generous offset
             const offset = navbarHeight - 40; // Increased padding for better clearance
             const targetPosition = elementTop - offset;
-
-            console.log('Target position:', targetPosition);
-            console.log('Offset used:', offset);
 
             // Force scroll with multiple methods
             try {
@@ -60,11 +50,9 @@ const useNavbarUtils = (): NavbarUtils => {
               // Fallback method after a short delay
               setTimeout(() => {
                 const currentScroll = window.pageYOffset;
-                console.log('After scroll - Current position:', currentScroll);
 
                 // If we're not close to target, try again
                 if (Math.abs(currentScroll - targetPosition) > 10) {
-                  console.log("Scroll didn't reach target, trying again...");
                   window.scrollTo({
                     top: targetPosition,
                     behavior: 'auto', // Use instant scroll as fallback

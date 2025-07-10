@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { containerVariants } from '@/db/projects';
-import SectionHeader from '@/components/projects/section-header';
 import FeaturedProjects from '@/components/projects/featured-projects';
 import OtherProjects from '@/components/projects/other-projects';
+import SectionHeader from '@/components/section-header';
 
 export default function Projects() {
   const [ref, inView] = useInView({
@@ -22,7 +22,11 @@ export default function Projects() {
           className='space-y-16'
         >
           {/* Section Header */}
-          <SectionHeader />
+          <SectionHeader
+            titleOne={`Featured`}
+            titleTwo={`Projects`}
+            paragraph={`A showcase of my recent work and side projects`}
+          />
 
           {/* Featured Projects */}
           <FeaturedProjects />

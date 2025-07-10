@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { containerVariants } from '@/db/about';
-import SectionHeader from '@/components/about/section-header';
 import Content from '@/components/about/content';
 import Skills from '@/components/about/skills';
+import SectionHeader from '@/components/section-header';
 
 export default function About() {
   const [ref, inView] = useInView({
@@ -22,7 +22,11 @@ export default function About() {
           className='space-y-16'
         >
           {/* Section Header */}
-          <SectionHeader />
+          <SectionHeader
+            paragraph={`Passionate about creating exceptional digital experiences with modern web technologies`}
+            titleOne={`About`}
+            titleTwo={`Me`}
+          />
 
           {/* About Content */}
           <Content />

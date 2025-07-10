@@ -8,8 +8,6 @@ export const registerServiceWorker = () => {
       navigator.serviceWorker
         .register('/sw.js')
         .then((registration) => {
-          console.log('SW registered: ', registration);
-
           // 🔄 اكتشف وجود تحديث جديد
           registration.onupdatefound = () => {
             const installingWorker = registration.installing;

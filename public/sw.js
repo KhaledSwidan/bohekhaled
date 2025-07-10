@@ -9,12 +9,10 @@ const urlsToCache = [
 
 // ✅ Install Service Worker
 self.addEventListener('install', (event) => {
-  console.log('[Service Worker] Installing...');
   self.skipWaiting(); // تفعيل التحديث فورًا
 
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
-      console.log('[Service Worker] Caching essential assets');
       return cache.addAll(urlsToCache);
     })
   );
@@ -22,8 +20,6 @@ self.addEventListener('install', (event) => {
 
 // ✅ Activate Service Worker
 self.addEventListener('activate', (event) => {
-  console.log('[Service Worker] Activating...');
-
   event.waitUntil(
     caches
       .keys()
@@ -31,7 +27,6 @@ self.addEventListener('activate', (event) => {
         return Promise.all(
           cacheNames.map((cacheName) => {
             if (cacheName !== CACHE_NAME) {
-              console.log('[Service Worker] Deleting old cache:', cacheName);
               return caches.delete(cacheName);
             }
           })
