@@ -34,50 +34,57 @@ const projects = [
     id: 3,
     title: 'Weather Dashboard',
     description:
-      'A beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.',
+      'A beautiful and simple weather dashboard with location-based forecasts, interactive maps, PWA, and detailed weather analytics.',
     image:
       'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600',
-    technologies: ['React.js', 'Weather API', 'Chart.js', 'CSS Modules'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
+    technologies: [
+      'Vanilla JavaScript ES6+',
+      'Weather API',
+      'PWA',
+      'Pure CSS3',
+      'HTML5',
+      'Local Storage',
+    ],
+    liveUrl: 'https://khaledswidan.github.io/WeatherApp/',
+    githubUrl: 'https://github.com/KhaledSwidan/WeatherApp',
     featured: false,
   },
-  {
-    id: 4,
-    title: 'Social Media Dashboard',
-    description:
-      'Analytics dashboard for social media management with data visualization, scheduling, and performance tracking.',
-    image:
-      'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600',
-    technologies: ['Vue.js', 'D3.js', 'Express.js', 'PostgreSQL'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
-    featured: false,
-  },
-  {
-    id: 5,
-    title: 'Portfolio Website',
-    description:
-      'A responsive portfolio website with dark mode, smooth animations, and optimized performance. Built with modern web technologies.',
-    image:
-      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600',
-    technologies: ['React.js', 'TypeScript', 'Framer Motion', 'Tailwind CSS'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
-    featured: false,
-  },
-  {
-    id: 6,
-    title: 'Learning Management System',
-    description:
-      'A comprehensive LMS with course creation, student progress tracking, video streaming, and interactive quizzes.',
-    image:
-      'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=600',
-    technologies: ['Next.js', 'Prisma', 'PostgreSQL', 'NextAuth.js', 'AWS S3'],
-    liveUrl: 'https://example.com',
-    githubUrl: 'https://github.com',
-    featured: false,
-  },
+  // {
+  //   id: 4,
+  //   title: 'Social Media Dashboard',
+  //   description:
+  //     'Analytics dashboard for social media management with data visualization, scheduling, and performance tracking.',
+  //   image:
+  //     'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600',
+  //   technologies: ['', '', '', ''],
+  //   liveUrl: '',
+  //   githubUrl: '',
+  //   featured: false,
+  // },
+  // {
+  //   id: 5,
+  //   title: 'Portfolio Website',
+  //   description:
+  //     'A responsive portfolio website with dark mode, smooth animations, and optimized performance. Built with modern web technologies.',
+  //   image:
+  //     'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600',
+  //   technologies: ['', '', '', ''],
+  //   liveUrl: '',
+  //   githubUrl: '',
+  //   featured: false,
+  // },
+  // {
+  //   id: 6,
+  //   title: 'Learning Management System',
+  //   description:
+  //     'A comprehensive LMS with course creation, student progress tracking, video streaming, and interactive quizzes.',
+  //   image:
+  //     'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=600',
+  //   technologies: ['', '', '', '', ''],
+  //   liveUrl: '',
+  //   githubUrl: '',
+  //   featured: false,
+  // },
 ];
 
 const containerVariants = {

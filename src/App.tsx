@@ -4,13 +4,13 @@ import SEOMeta from '@/lib/seo-meta';
 import Navbar from '@/pages/navbar';
 import Hero from '@/pages/hero';
 import ScrollToTop from '@/components/scroll-to-top';
-import { SectionLoader } from './components/loading-spinner';
-import { ErrorBoundary } from './components/error-boundary';
+import { SectionLoader } from '@/components/loading-spinner';
+import { ErrorBoundary } from '@/components/error-boundary';
 
 // Lazy Loading for better performance
 const About = lazy(() => import('@/pages/about'));
 const Projects = lazy(() => import('@/pages/projects'));
-// const Contact = lazy(() => import('@/components/contact'));
+const Contact = lazy(() => import('@/pages/contact'));
 // const Footer = lazy(() => import('@/components/footer'));
 
 function App() {
@@ -39,7 +39,7 @@ function App() {
           <Suspense
             fallback={<SectionLoader label='Loading Contact-Section' />}
           >
-            {/* <Contact /> */}
+            <Contact />
           </Suspense>
 
           <Suspense fallback={<SectionLoader label='Loading Footer-Section' />}>
