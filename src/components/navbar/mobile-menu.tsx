@@ -12,9 +12,11 @@ interface MobileMenuProps {
 const MobileMenu = ({ isOpen, setIsOpen }: MobileMenuProps) => {
   return (
     <Button
+      data-slot='mobile-menu'
+      type='button'
       variant='outline'
       size='icon'
-      className='md:hidden bg-slate-800/50 border-slate-700 hover:bg-slate-700/50 transition-all duration-300'
+      className='md:hidden bg-slate-800/50 border-slate-700 hover:bg-slate-700/50 transition-all duration-300 mr-4'
       onClick={() => setIsOpen(!isOpen)}
       aria-expanded={isOpen}
       aria-label={isOpen ? 'Close menu' : 'Open menu'}

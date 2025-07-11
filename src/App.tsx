@@ -6,6 +6,7 @@ import Hero from '@/pages/hero';
 import ScrollToTop from '@/components/scroll-to-top';
 import { SectionLoader } from '@/components/loading-spinner';
 import { ErrorBoundary } from '@/components/error-boundary';
+import Footer from './pages/footer';
 
 // Lazy Loading for better performance
 const About = lazy(() => import('@/pages/about'));
@@ -25,25 +26,25 @@ function App() {
           <Hero />
 
           <Suspense
-            fallback={<SectionLoader label='Loading About-Section...' />}
+            fallback={<SectionLoader label='Loading About Section...' />}
           >
             <About />
           </Suspense>
 
           <Suspense
-            fallback={<SectionLoader label='Loading Projects-Section' />}
+            fallback={<SectionLoader label='Loading Projects Section' />}
           >
             <Projects />
           </Suspense>
 
           <Suspense
-            fallback={<SectionLoader label='Loading Contact-Section' />}
+            fallback={<SectionLoader label='Loading Contact Section' />}
           >
             <Contact />
           </Suspense>
 
-          <Suspense fallback={<SectionLoader label='Loading Footer-Section' />}>
-            {/* <Footer /> */}
+          <Suspense fallback={<SectionLoader label='Loading Footer Section' />}>
+            <Footer />
           </Suspense>
         </main>
 

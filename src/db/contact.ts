@@ -1,4 +1,6 @@
-import z from 'zod';
+'use client';
+
+import { z } from 'zod';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import type { Variants } from 'framer-motion';
 
@@ -7,7 +9,10 @@ const formSchema = z.object({
     .string()
     .min(2, 'Name must be at least 2 characters')
     .max(50, 'Name must be less than 50 characters')
-    .regex(/^[a-zA-Z\s]+$/, 'Name can only contain letters and spaces'),
+    .regex(
+      /^[a-zA-Z\s\u0600-\u06FF]+$/,
+      'Name can only contain letters and spaces'
+    ),
   email: z
     .string()
     .email('Please enter a valid email address')
@@ -44,7 +49,7 @@ const contactInfo = [
   },
 ];
 
-// ✅ Proper variants structure with organized animation states
+// Animation variants
 const contactVariants: Variants = {
   hidden: {
     opacity: 0,
