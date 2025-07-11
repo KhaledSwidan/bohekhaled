@@ -1,5 +1,3 @@
-// كود التقاط الأخطاء والتقارير عنها
-
 type ErrorInfo =
   | {
       message: string;

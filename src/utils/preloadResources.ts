@@ -1,5 +1,3 @@
-// كود تحميل الصور والخطوط مسبقًا
-
 export const preloadCriticalResources = () => {
   // Preload hero image
   const heroImage = new Image();

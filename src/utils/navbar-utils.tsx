@@ -1,5 +1,3 @@
-'use client';
-
 import { useCallback, useState, useEffect } from 'react';
 
 export interface NavbarUtils {

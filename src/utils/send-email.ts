@@ -80,7 +80,7 @@ export const sendEmail = async (formData: FormDataProps): Promise<boolean> => {
     console.log('✅ EmailJS response:', response);
 
     if (response.status === 200) {
-      console.log('✅ Email sent successfully!');
+      console.log('Email sent successfully!');
       return true;
     } else {
       throw new Error(
@@ -88,7 +88,7 @@ export const sendEmail = async (formData: FormDataProps): Promise<boolean> => {
       );
     }
   } catch (error) {
-    console.error('❌ Email sending failed:', error);
+    console.error('Email sending failed:', error);
 
     // More specific error handling
     if (error instanceof Error) {

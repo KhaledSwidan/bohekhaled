@@ -1,5 +1,3 @@
-// src/components/navbar/mobile-menu.tsx
-
 import { Button } from '../ui/button';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';

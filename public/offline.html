@@ -242,7 +242,7 @@
     </div>
 
     <script>
-      // ✅ Check connection status
+      // Check connection status
       function updateConnectionStatus() {
         const indicator = document.getElementById('statusIndicator');
         const statusText = document.getElementById('statusText');
@@ -256,10 +256,10 @@
         }
       }
 
-      // ✅ Listen for connection changes
+      // Listen for connection changes
       window.addEventListener('online', () => {
         updateConnectionStatus();
-        // Auto-refresh after 2 seconds when back online
+        // Auto-refresh when back online
         setTimeout(() => {
           window.location.reload();
         }, 2000);
@@ -267,13 +267,13 @@
 
       window.addEventListener('offline', updateConnectionStatus);
 
-      // ✅ Initial check
+      // Initial check
       updateConnectionStatus();
 
-      // ✅ Periodic check every 5 seconds
+      // Periodic check every 5 seconds
       setInterval(updateConnectionStatus, 5000);
 
-      // ✅ Add keyboard support
+      // Add keyboard support
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           window.location.reload();

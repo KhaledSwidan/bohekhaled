@@ -1,5 +1,3 @@
-// src/components/navbar/desktop-navigation.tsx
-
 import { motion } from 'framer-motion';
 import { cn } from '@/lib/utils';
 import { navItems } from '@/db/navbar';

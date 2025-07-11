@@ -2,16 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Enhanced mobile scrolling support */
+/* Mobile scrolling support */
 * {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Improved smooth scrolling with mobile support */
+/* Smooth scrolling with mobile support */
 html {
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  /* Prevent horizontal scroll on mobile */
   overflow-x: hidden;
 }
 
@@ -41,12 +40,11 @@ html {
 @supports (-webkit-touch-callout: none) {
   body {
     -webkit-overflow-scrolling: touch;
-    /* Prevent bounce scrolling */
     overscroll-behavior: none;
   }
 }
 
-/* Better smooth scroll support across browsers */
+/* Smooth scroll support across browsers */
 @media (prefers-reduced-motion: no-preference) {
   html {
     scroll-behavior: smooth;
@@ -59,7 +57,7 @@ html {
   }
 }
 
-/* Improve mobile touch responsiveness */
+/* Mobile touch responsiveness */
 @media (hover: none) and (pointer: coarse) {
   button:hover {
     background-color: initial;

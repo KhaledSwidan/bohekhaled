@@ -1,15 +1,15 @@
 const CACHE_NAME = 'portfolio-v1';
 const urlsToCache = [
-  '/', // الصفحة الرئيسية
+  '/',
   '/favicon.ico',
   '/manifest.json',
   '/hero-image.jpg',
-  '/offline.html', // صفحة offline احتياطية (لو حابب تستخدمها)
+  '/offline.html',
 ];
 
-// ✅ Install Service Worker
+// Install Service Worker
 self.addEventListener('install', (event) => {
-  self.skipWaiting(); // تفعيل التحديث فورًا
+  self.skipWaiting();
 
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -18,7 +18,7 @@ self.addEventListener('install', (event) => {
   );
 });
 
-// ✅ Activate Service Worker
+// Activate Service Worker
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches
@@ -32,11 +32,11 @@ self.addEventListener('activate', (event) => {
           })
         );
       })
-      .then(() => self.clients.claim()) // تفعيل فورًا لكل التبويبات
+      .then(() => self.clients.claim())
   );
 });
 
-// ✅ Fetch: Cache-first with network fallback
+// Fetch: Cache-first with network fallback
 self.addEventListener('fetch', (event) => {
   if (event.request.method !== 'GET') return;
 
@@ -47,7 +47,7 @@ self.addEventListener('fetch', (event) => {
       }
 
       return fetch(event.request).catch(() => {
-        // fallback to offline page (اختياري)
+        // fallback to offline page
         if (event.request.mode === 'navigate') {
           return caches.match('/offline.html');
         }

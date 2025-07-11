@@ -1,5 +1,3 @@
-'use client';
-
 import { z } from 'zod';
 import { Mail, Phone, MapPin } from 'lucide-react';
 import type { Variants } from 'framer-motion';

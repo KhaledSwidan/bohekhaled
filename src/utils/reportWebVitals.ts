@@ -1,5 +1,3 @@
-// كود أداء الموقع (Web Vitals)
-
 import { onCLS, onFID, onFCP, onLCP, onTTFB, type Metric } from 'web-vitals';
 
 const reportWebVitals = (metric: Metric) => {

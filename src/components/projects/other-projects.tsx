@@ -50,13 +50,13 @@ const OtherProjects = () => {
                       key={tech ?? idx}
                       variant='outline'
                       className={`
-                  ${badgeStyles[idx % badgeStyles.length]}
-                  transition-all duration-300 cursor-default
-                  hover:scale-105 hover:shadow-sm
-                  px-2 py-1 text-xs font-medium
-                  backdrop-blur-sm
-                  transform hover:-translate-y-0.5
-                `}
+                        ${badgeStyles[idx % badgeStyles.length]}
+                        transition-all duration-300 cursor-default
+                        hover:scale-105 hover:shadow-sm
+                        px-2 py-1 text-xs font-medium
+                        backdrop-blur-sm
+                        transform hover:-translate-y-0.5
+                      `}
                     >
                       <span className='relative z-10'>{tech}</span>
                     </Badge>
