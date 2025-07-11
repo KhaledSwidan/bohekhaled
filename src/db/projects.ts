@@ -49,42 +49,6 @@ const projects = [
     githubUrl: 'https://github.com/KhaledSwidan/WeatherApp',
     featured: false,
   },
-  // {
-  //   id: 4,
-  //   title: 'Social Media Dashboard',
-  //   description:
-  //     'Analytics dashboard for social media management with data visualization, scheduling, and performance tracking.',
-  //   image:
-  //     'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600',
-  //   technologies: ['', '', '', ''],
-  //   liveUrl: '',
-  //   githubUrl: '',
-  //   featured: false,
-  // },
-  // {
-  //   id: 5,
-  //   title: 'Portfolio Website',
-  //   description:
-  //     'A responsive portfolio website with dark mode, smooth animations, and optimized performance. Built with modern web technologies.',
-  //   image:
-  //     'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600',
-  //   technologies: ['', '', '', ''],
-  //   liveUrl: '',
-  //   githubUrl: '',
-  //   featured: false,
-  // },
-  // {
-  //   id: 6,
-  //   title: 'Learning Management System',
-  //   description:
-  //     'A comprehensive LMS with course creation, student progress tracking, video streaming, and interactive quizzes.',
-  //   image:
-  //     'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=600',
-  //   technologies: ['', '', '', '', ''],
-  //   liveUrl: '',
-  //   githubUrl: '',
-  //   featured: false,
-  // },
 ];
 
 const containerVariants = {

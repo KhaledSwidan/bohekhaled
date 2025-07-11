@@ -6,13 +6,12 @@ import Hero from '@/pages/hero';
 import ScrollToTop from '@/components/scroll-to-top';
 import { SectionLoader } from '@/components/loading-spinner';
 import { ErrorBoundary } from '@/components/error-boundary';
-import Footer from './pages/footer';
+import Footer from '@/components/footer/footer';
 
 // Lazy Loading for better performance
 const About = lazy(() => import('@/pages/about'));
 const Projects = lazy(() => import('@/pages/projects'));
 const Contact = lazy(() => import('@/pages/contact'));
-// const Footer = lazy(() => import('@/components/footer'));
 
 function App() {
   return (

@@ -17,10 +17,11 @@ const Logo = ({ scrollToSection }: LogoProps) => {
     >
       <Button
         onClick={() => scrollToSection('#home')}
-        className='text-2xl font-bold bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent hover:from-slate-100 hover:to-slate-400 transition-all duration-300 p-2 border-0'
+        variant="ghost"
+        className='text-2xl font-bold bg-gradient-to-r from-slate-200 to-slate-400 bg-clip-text text-transparent hover:from-slate-100 hover:to-slate-400 transition-all duration-300 p-2 hover:bg-transparent'
         aria-label='Go to homepage'
       >
-        &lt;BoheK /&gt;
+        KS
       </Button>
     </motion.div>
   );

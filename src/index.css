@@ -7,16 +7,16 @@
   -webkit-overflow-scrolling: touch;
 }
 
+/* Improved smooth scrolling with mobile support */
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /* Prevent horizontal scroll on mobile */
+  overflow-x: hidden;
+}
+
 /* Mobile adjustments */
 @media screen and (max-width: 768px) {
-  /* #home,
-  #about,
-  #projects,
-  #contact {
-    padding-top: 120px;
-    margin-top: -120px;
-  } */
-
   body {
     position: relative;
     overflow-x: hidden;
@@ -35,14 +35,6 @@
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
   }
-}
-
-/* Improved smooth scrolling with mobile support */
-html {
-  scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  /* Prevent horizontal scroll on mobile */
-  overflow-x: hidden;
 }
 
 /* Mobile Safari specific fixes */
@@ -65,14 +57,6 @@ html {
   html {
     scroll-behavior: auto;
   }
-}
-
-/* Prevent text selection on navigation elements */
-.navbar-item {
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 /* Improve mobile touch responsiveness */
@@ -149,94 +133,6 @@ html {
   html {
     scroll-behavior: smooth;
   }
-}
-
-/* Loading animations */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes pulse-glow {
-  0%,
-  100% {
-    opacity: 0.8;
-    box-shadow: 0 0 20px rgba(168, 162, 158, 0.3);
-  }
-  50% {
-    opacity: 1;
-    box-shadow: 0 0 30px rgba(168, 162, 158, 0.5);
-  }
-}
-
-@keyframes float {
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.loading-spinner {
-  animation: spin 1.5s linear infinite;
-}
-
-.pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
-}
-
-.float-animation {
-  animation: float 3s ease-in-out infinite;
-}
-
-.fade-in-up {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-.loading-dots::after {
-  content: '';
-  animation: dots 2s infinite;
-}
-
-@keyframes dots {
-  0%,
-  20% {
-    content: '';
-  }
-  40% {
-    content: '.';
-  }
-  60% {
-    content: '..';
-  }
-  80%,
-  100% {
-    content: '...';
-  }
-}
-
-/* Glassmorphism effect */
-.glass-effect {
-  background: rgba(39, 39, 42, 0.8);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(168, 162, 158, 0.1);
 }
 
 /* Root opacity transition */
