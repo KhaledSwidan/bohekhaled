@@ -28,7 +28,7 @@ const MobileNavigation = ({
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.3, ease: 'easeInOut' }}
-          className='md:hidden overflow-hidden bg-slate-800/95 backdrop-blur-md border-t border-slate-700/50 rounded-b-lg'
+          className='md:hidden overflow-hidden bg-slate-800 backdrop-blur-md border-t border-slate-700/50 rounded-b-lg'
         >
           <div className='py-4 space-y-2 px-4'>
             {navItems.map((item, index) => (

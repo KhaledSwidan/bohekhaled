@@ -38,8 +38,8 @@ const contactInfo = [
   {
     icon: Phone,
     title: 'Phone',
-    value: '+20 1234567890',
-    href: 'tel:+201234567890',
+    value: '+20 1111988998',
+    href: 'tel:+20 1111988998',
   },
   {
     icon: MapPin,

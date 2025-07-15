@@ -66,7 +66,7 @@ const ContactInfo = () => {
 
       {/* Additional Info Cards */}
       <motion.div
-        className='grid gap-4'
+        className='flex flex-col sm:flex-row items-center justify-center gap-4'
         variants={{
           hidden: { opacity: 0 },
           visible: {
@@ -78,7 +78,7 @@ const ContactInfo = () => {
         }}
       >
         {/* Availability */}
-        <motion.div variants={cardVariants}>
+        <motion.div variants={cardVariants} className='w-full'>
           <Card className='bg-slate-800/30 border-slate-700/50 backdrop-blur-sm'>
             <CardContent className='p-4'>
               <div className='flex items-center space-x-3'>
@@ -99,7 +99,7 @@ const ContactInfo = () => {
         </motion.div>
 
         {/* Response Time */}
-        <motion.div variants={cardVariants}>
+        <motion.div variants={cardVariants} className='w-full'>
           <Card className='bg-slate-800/30 border-slate-700/50 backdrop-blur-sm'>
             <CardContent className='p-4'>
               <div className='flex items-center space-x-3'>

@@ -9,6 +9,7 @@ import { initializePerformanceMonitoring } from '@/utils/reportWebVitals';
 import { setupErrorHandling } from '@/utils/errorHandler';
 import { registerServiceWorker } from '@/utils/registerServiceWorker';
 import { preloadCriticalResources } from '@/utils/preloadResources';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 const initializeApp = () => {
   const rootElement = document.getElementById('root');
@@ -21,12 +22,15 @@ const initializeApp = () => {
 
   const root = createRoot(rootElement);
   root.render(
-    <StrictMode>
-      <HeadProvider>
-        <App />
-        <Toaster position='bottom-center' />
-      </HeadProvider>
-    </StrictMode>
+    <>
+      <StrictMode>
+        <HeadProvider>
+          <App />
+          <Toaster position='bottom-center' />
+        </HeadProvider>
+      </StrictMode>
+      <SpeedInsights />
+    </>
   );
 
   const loadingScreen = document.getElementById('loading-screen');

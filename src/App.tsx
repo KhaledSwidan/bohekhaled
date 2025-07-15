@@ -21,33 +21,27 @@ function App() {
 
       <div className='min-h-screen bg-slate-900 text-slate-50 transition-colors duration-300'>
         <Navbar />
-
         <main role='main' className='relative'>
           <Hero />
-
           <Suspense
             fallback={<SectionLoader label='Loading About Section...' />}
           >
             <About />
           </Suspense>
-
           <Suspense
             fallback={<SectionLoader label='Loading Projects Section' />}
           >
             <Projects />
           </Suspense>
-
           <Suspense
             fallback={<SectionLoader label='Loading Contact Section' />}
           >
             <Contact />
           </Suspense>
-
           <Suspense fallback={<SectionLoader label='Loading Footer Section' />}>
             <Footer />
           </Suspense>
         </main>
-
         <ScrollToTop />
         <Toaster
           position='top-right'

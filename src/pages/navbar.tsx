@@ -45,7 +45,7 @@ export default function Navbar() {
           : 'bg-transparent'
       )}
     >
-      <div className='container mx-auto px-4 lg:px-8'>
+      <div className='container mx-auto px-4 lg:px-8 '>
         <div className='flex items-center justify-between h-16'>
           <Logo scrollToSection={scrollToSection} />
           <DesktopNavigation
