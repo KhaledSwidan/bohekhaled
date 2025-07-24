@@ -25,10 +25,3 @@ export const socialLinks = [
   },
 ];
 
-export const scrollToContact = () => {
-  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-};
-
-export const scrollToAbout = () => {
-  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-};

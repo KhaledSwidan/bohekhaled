@@ -1,9 +1,14 @@
 import { Download, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Button } from '../ui/button';
-import { scrollToContact } from '@/db/hero';
+import { useNavigate } from 'react-router';
 
 const CTAButtons = () => {
+  const navigate = useNavigate();
+
+  const goToContact = () => {
+    navigate('/contact');
+  };
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -12,7 +17,7 @@ const CTAButtons = () => {
       className='flex flex-col sm:flex-row gap-4 items-center justify-center'
     >
       <Button
-        onClick={scrollToContact}
+        onClick={goToContact}
         size='lg'
         className='group bg-slate-700 hover:bg-slate-600 text-slate-100 backdrop-blur-sm'
       >
