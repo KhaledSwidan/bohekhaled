@@ -4,9 +4,9 @@ const BackgroundAnimation = () => {
   return (
     <>
       {' '}
-      <div className='absolute inset-0 z-10'>
+      <div className='absolute inset-0 z-10 overflow-hidden'>
         {/* Gradient Background */}
-        <div className='absolute inset-0 bg-gradient-to-br from-slate-800/20 via-transparent to-slate-700/20' />
+        {/* <div className='absolute inset-0 bg-gradient-to-br from-slate-800/20 via-transparent to-slate-700/20' /> */}
 
         {/* Floating Particles with Enhanced Animation */}
         {[...Array(15)].map((_, i) => {

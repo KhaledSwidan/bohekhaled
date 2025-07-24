@@ -12,6 +12,7 @@ import {
 } from '@/db/projects';
 import { Button } from '../ui/button';
 import { ArrowRight, Github } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const OtherProjects = () => {
   return (
@@ -53,7 +54,7 @@ const OtherProjects = () => {
                   ${badgeStyles[idx % badgeStyles.length]}
                   transition-all duration-300 cursor-default
                   hover:scale-105 hover:shadow-sm
-                  px-2 py-1 text-xs font-medium
+                  px-2 py-1 mr-1 text-xs font-medium
                   backdrop-blur-sm
                   transform hover:-translate-y-0.5
                 `}
@@ -78,14 +79,14 @@ const OtherProjects = () => {
                   asChild
                   className={`${buttonBaseClasses} ${iconTransform} ${mainButtonStyles.primary} hover:scale-105 transform`}
                 >
-                  <a
-                    href={project.liveUrl}
+                  <Link
+                    to={project.liveUrl}
                     target='_blank'
                     rel='noopener noreferrer'
                   >
                     Demo
                     <ArrowRight className={iconClasses} />
-                  </a>
+                  </Link>
                 </Button>
                 <Button
                   size='lg'
@@ -93,14 +94,14 @@ const OtherProjects = () => {
                   asChild
                   className={`${buttonBaseClasses} ${iconTransform} ${mainButtonStyles.secondary} hover:scale-105 transform`}
                 >
-                  <a
-                    href={project.githubUrl}
+                  <Link
+                    to={project.githubUrl}
                     target='_blank'
                     rel='noopener noreferrer'
                   >
                     <Github className={iconClasses} />
                     Code
-                  </a>
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>

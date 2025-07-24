@@ -7,17 +7,17 @@ import { AnimatePresence, motion } from 'framer-motion';
 interface MobileNavigationProps {
   activeSection: string;
   isOpen: boolean;
-  scrollToSection: (href: string) => void;
+  navigateToSection: (href: string) => void;
 }
 
 const MobileNavigation = ({
   activeSection,
   isOpen,
-  scrollToSection,
+  navigateToSection,
 }: MobileNavigationProps) => {
   const handleNavClick = (href: string) => {
     // Prevent event bubbling
-    scrollToSection(href);
+    navigateToSection(href);
   };
 
   return (
@@ -40,7 +40,7 @@ const MobileNavigation = ({
                 transition={{ delay: index * 0.1 }}
                 className={cn(
                   'block w-full text-left px-4 py-3 text-base font-medium transition-all duration-300 rounded-lg touch-manipulation',
-                  activeSection === item.href.substring(1)
+                  activeSection === item.href
                     ? 'text-slate-100 bg-slate-700/50'
                     : 'text-slate-300 hover:text-slate-100 hover:bg-slate-700/30 active:bg-slate-700/40'
                 )}
@@ -49,7 +49,7 @@ const MobileNavigation = ({
               >
                 <span className='flex items-center'>
                   {item.name}
-                  {activeSection === item.href.substring(1) && (
+                  {activeSection === item.href && (
                     <motion.div
                       initial={{ scale: 0 }}
                       animate={{ scale: 1 }}

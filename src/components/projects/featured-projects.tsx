@@ -1,5 +1,3 @@
-'use client';
-
 import {
   badgeStyles,
   buttonBaseClasses,
@@ -15,13 +13,14 @@ import { Card } from '../ui/card';
 import { motion } from 'framer-motion';
 import { ArrowRight, ExternalLink, Github } from 'lucide-react';
 import { Badge } from '../ui/badge';
+import { Link } from 'react-router-dom';
 
 const FeaturedProjects = () => {
   return (
     <div className='space-y-12'>
       {featuredProjects.map((project, index) => (
         <motion.div
-          key={project.id}
+          key={project.id ?? index}
           variants={itemVariants}
           className={`grid md:grid-cols-2 gap-8 items-center ${
             index % 2 === 1 ? 'lg:grid-flow-col-dense' : ''
@@ -44,14 +43,14 @@ const FeaturedProjects = () => {
                       asChild
                       className={`${buttonBaseClasses} ${iconTransform} ${overlayButtonStyles.primary}`}
                     >
-                      <a
-                        href={project.liveUrl}
+                      <Link
+                        to={project.liveUrl}
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         <ExternalLink className={iconClasses} />
                         Live Demo
-                      </a>
+                      </Link>
                     </Button>
                     <Button
                       size='sm'
@@ -59,14 +58,14 @@ const FeaturedProjects = () => {
                       asChild
                       className={`${buttonBaseClasses} ${iconTransform} ${overlayButtonStyles.secondary}`}
                     >
-                      <a
-                        href={project.githubUrl}
+                      <Link
+                        to={project.githubUrl}
                         target='_blank'
                         rel='noopener noreferrer'
                       >
                         <Github className={iconClasses} />
                         Code
-                      </a>
+                      </Link>
                     </Button>
                   </div>
                 </div>
@@ -109,14 +108,14 @@ const FeaturedProjects = () => {
                 asChild
                 className={`${buttonBaseClasses} ${iconTransform} ${mainButtonStyles.primary} hover:scale-105 transform`}
               >
-                <a
-                  href={project.liveUrl}
+                <Link
+                  to={project.liveUrl}
                   target='_blank'
                   rel='noopener noreferrer'
                 >
                   View Project
                   <ArrowRight className={iconClasses} />
-                </a>
+                </Link>
               </Button>
               <Button
                 size='lg'
@@ -124,14 +123,14 @@ const FeaturedProjects = () => {
                 asChild
                 className={`${buttonBaseClasses} ${iconTransform} ${mainButtonStyles.secondary} hover:scale-105 transform`}
               >
-                <a
-                  href={project.githubUrl}
+                <Link
+                  to={project.githubUrl}
                   target='_blank'
                   rel='noopener noreferrer'
                 >
                   <Github className={iconClasses} />
                   Source Code
-                </a>
+                </Link>
               </Button>
             </div>
           </div>

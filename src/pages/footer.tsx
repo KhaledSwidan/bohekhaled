@@ -5,7 +5,7 @@ import QuickLinks from '@/components/footer/quick-links';
 
 export default function Footer() {
   return (
-    <footer className='bg-slate-800/50 border-t border-slate-700'>
+    <footer className='bg-gradient-to-br from-zinc-900 to-slate-900/90 backdrop-blur-md border-t-2 border-slate-600/50'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12'>
         <div className='grid md:grid-cols-4 gap-8'>
           {/* Brand */}

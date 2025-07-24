@@ -10,7 +10,7 @@ import MobileMenu from '@/components/navbar/mobile-menu';
 import MobileNavigation from '@/components/navbar/mobile-navigation';
 
 export default function Navbar() {
-  const { activeSection, scrollToSection, isOpen, setIsOpen, isScrolled } =
+  const { activeSection, navigateToSection, isOpen, setIsOpen, isScrolled } =
     useNavbarUtils();
   const navRef = useRef<HTMLElement>(null);
 
@@ -47,10 +47,10 @@ export default function Navbar() {
     >
       <div className='container mx-auto px-4 lg:px-8 '>
         <div className='flex items-center justify-between h-16'>
-          <Logo scrollToSection={scrollToSection} />
+          <Logo navigateToSection={navigateToSection} />
           <DesktopNavigation
             activeSection={activeSection}
-            scrollToSection={scrollToSection}
+            navigateToSection={navigateToSection}
           />
           <MobileMenu isOpen={isOpen} setIsOpen={setIsOpen} />
         </div>
@@ -58,7 +58,7 @@ export default function Navbar() {
         <MobileNavigation
           activeSection={activeSection}
           isOpen={isOpen}
-          scrollToSection={scrollToSection}
+          navigateToSection={navigateToSection}
         />
       </div>
 

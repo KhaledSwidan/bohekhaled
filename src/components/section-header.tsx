@@ -27,7 +27,12 @@ const SectionHeader = ({
   paragraph,
 }: SectionHeaderProps) => {
   return (
-    <motion.header variants={headerVariants} className='text-center space-y-6'>
+    <motion.header
+      initial='hidden'
+      whileInView='visible'
+      variants={headerVariants}
+      className='text-center space-y-6'
+    >
       <div className='space-y-4'>
         <motion.h2
           className='text-3xl md:text-4xl lg:text-5xl font-bold text-slate-100'

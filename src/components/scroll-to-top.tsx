@@ -4,7 +4,7 @@ import { ChevronUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function ScrollToTop() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState<boolean>(false);
 
   useEffect(() => {
     const toggleVisibility = () => {
@@ -39,10 +39,10 @@ export default function ScrollToTop() {
           <Button
             onClick={scrollToTop}
             size='icon'
-            className='rounded-full shadow-lg hover:shadow-xl transition-shadow'
+            className='rounded-full border border-slate-700/40 bg-slate-800/30 backdrop-blur-sm hover:bg-slate-800/40 hover:border-slate-600/50 shadow-md hover:shadow-lg transition-all duration-500'
             aria-label='Scroll to top'
           >
-            <ChevronUp className='w-4 h-4' />
+            <ChevronUp className='w-5 h-5 font-bold text-neutral-400' />
           </Button>
         </motion.div>
       )}
