@@ -49,30 +49,37 @@ const projects = [
     githubUrl: 'https://github.com/KhaledSwidan/WeatherApp',
     featured: false,
   },
-  // {
-  //   id: 4,
-  //   title: 'Social Media Dashboard',
-  //   description:
-  //     'Analytics dashboard for social media management with data visualization, scheduling, and performance tracking.',
-  //   image:
-  //     'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600',
-  //   technologies: ['', '', '', ''],
-  //   liveUrl: '',
-  //   githubUrl: '',
-  //   featured: false,
-  // },
-  // {
-  //   id: 5,
-  //   title: 'Portfolio Website',
-  //   description:
-  //     'A responsive portfolio website with dark mode, smooth animations, and optimized performance. Built with modern web technologies.',
-  //   image:
-  //     'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600',
-  //   technologies: ['', '', '', ''],
-  //   liveUrl: '',
-  //   githubUrl: '',
-  //   featured: false,
-  // },
+  {
+    id: 4,
+    title: 'Responsive Dashboard UI',
+    description:
+      'A modern and responsive dashboard template. It features a clean user interface and consistent design system - ideal for use in web apps, SaaS platforms, and admin panels.',
+    image:
+      'https://images.pexels.com/photos/265087/pexels-photo-265087.jpeg?auto=compress&cs=tinysrgb&w=600',
+    technologies: ['Vanilla JS ES6+', 'HTML5', 'CSS3'],
+    liveUrl: 'https://khaledswidan.github.io/awesomeadmin/',
+    githubUrl: 'https://github.com/KhaledSwidan/awesomeadmin',
+    featured: false,
+  },
+  {
+    id: 5,
+    title: 'Responsive One-Page Business Website',
+    description:
+      'Arsha is a modern, responsive one-page business website template designed for startups, companies, or service providers. Built using HTML5, CSS3, and Bootstrap, it features a clean layout, smooth scrolling, responsive design, and engaging UI sections like About, Services, Team, and Contact.',
+    image:
+      'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=600',
+    technologies: [
+      'HTML5',
+      'CSS3',
+      'Bootstrap5',
+      'Vanilla JavaScript',
+      'FontAwesome / Bootstrap Icons',
+      'GitHub Pages',
+    ],
+    liveUrl: 'https://khaledswidan.github.io/arsha/index.html',
+    githubUrl: 'https://github.com/KhaledSwidan/arsha',
+    featured: false,
+  },
   // {
   //   id: 6,
   //   title: 'Learning Management System',
