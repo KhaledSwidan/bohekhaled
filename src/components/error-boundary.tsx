@@ -1,3 +1,5 @@
+// src/components/error-boundary.tsx
+
 import {
   type FallbackProps,
   ErrorBoundary as ReactErrorBoundary,
