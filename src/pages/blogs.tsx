@@ -1,13 +1,17 @@
+// src/pages/blogs
+
 import { AppSidebar } from '@/components/app-sidebar';
-import BlogsContent from '@/components/blogs/BlogsContent';
+import SidebarInsetHeader from '@/components/blogs/SidebarInsetHeader';
 import { SidebarProvider } from '@/components/ui/sidebar';
 
 const Blogs = () => {
   return (
-    <SidebarProvider>
-      <AppSidebar />
-      <BlogsContent />
-    </SidebarProvider>
+    <>
+      <SidebarProvider>
+        <AppSidebar />
+        <SidebarInsetHeader />
+      </SidebarProvider>
+    </>
   );
 };
 
