@@ -85,7 +85,7 @@ export function NavUser({ user }: NavUserProps) {
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <span className='text-center'>
-                Let's build something amazing together!
+                Let's build something amazing together! 🚀
               </span>
             </DropdownMenuItem>
           </DropdownMenuContent>
