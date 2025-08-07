@@ -1,14 +1,12 @@
 import {
-  AudioWaveform,
-  BookOpen,
-  Bot,
-  Command,
+  CircleUser,
+  FolderGit2,
   Frame,
-  GalleryVerticalEnd,
+  House,
+  Mail,
   Map,
+  Newspaper,
   PieChart,
-  Settings2,
-  SquareTerminal,
 } from 'lucide-react';
 import avatar from '../../src/assets/avatar.jpg';
 
@@ -17,125 +15,66 @@ export const data = {
     name: 'Khaled Swidan',
     email: 'khaledqutb4@gmail.com',
     avatar: avatar,
+    github: 'https://github.com/KhaledSwidan',
+    linkdin: 'https://www.linkedin.com/in/bohemiancoder/',
+    facebook: 'https://www.facebook.com/marveloustimetobealive',
   },
   teams: [
     {
-      name: 'Blogs Page',
-      logo: GalleryVerticalEnd,
-      plan: 'BohemianCoder',
+      name: 'Web Dev Logs',
+      logo: Newspaper,
+      plan: 'Tips & Tutorials',
     },
-    {
-      name: 'Acme Corp.',
-      logo: AudioWaveform,
-      plan: 'Startup',
-    },
-    {
-      name: 'Evil Corp.',
-      logo: Command,
-      plan: 'Free',
-    },
+    // {
+    //   name: 'Acme Corp.',
+    //   logo: AudioWaveform,
+    //   plan: 'Startup',
+    // },
+    // {
+    //   name: 'Evil Corp.',
+    //   logo: Command,
+    //   plan: 'Free',
+    // },
   ],
   navMain: [
     {
-      title: 'Playground',
-      url: '#',
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: 'History',
-          url: '#',
-        },
-        {
-          title: 'Starred',
-          url: '#',
-        },
-        {
-          title: 'Settings',
-          url: '#',
-        },
-      ],
+      title: 'Home',
+      url: '/',
+      icon: House,
     },
     {
-      title: 'Models',
-      url: '#',
-      icon: Bot,
-      items: [
-        {
-          title: 'Genesis',
-          url: '#',
-        },
-        {
-          title: 'Explorer',
-          url: '#',
-        },
-        {
-          title: 'Quantum',
-          url: '#',
-        },
-      ],
+      title: 'AboutMe',
+      url: '/about',
+      icon: CircleUser,
     },
     {
-      title: 'Documentation',
-      url: '#',
-      icon: BookOpen,
-      items: [
-        {
-          title: 'Introduction',
-          url: '#',
-        },
-        {
-          title: 'Get Started',
-          url: '#',
-        },
-        {
-          title: 'Tutorials',
-          url: '#',
-        },
-        {
-          title: 'Changelog',
-          url: '#',
-        },
-      ],
+      title: 'Projects',
+      url: '/projects',
+      icon: FolderGit2,
     },
     {
-      title: 'Settings',
-      url: '#',
-      icon: Settings2,
-      items: [
-        {
-          title: 'General',
-          url: '#',
-        },
-        {
-          title: 'Team',
-          url: '#',
-        },
-        {
-          title: 'Billing',
-          url: '#',
-        },
-        {
-          title: 'Limits',
-          url: '#',
-        },
-      ],
+      title: 'Contact',
+      url: '/contact',
+      icon: Mail,
     },
   ],
   projects: [
     {
       name: 'Design Engineering',
-      url: '#',
+      urlLive: '#',
+      urlDemo: '#',
       icon: Frame,
     },
     {
       name: 'Sales & Marketing',
-      url: '#',
+      urlLive: '#',
+      urlDemo: '#',
       icon: PieChart,
     },
     {
       name: 'Travel',
-      url: '#',
+      urlLive: '#',
+      urlDemo: '#',
       icon: Map,
     },
   ],
