@@ -4,12 +4,13 @@ import './index.css';
 import App from './App.tsx';
 import { HeadProvider } from 'react-head';
 import { Toaster } from 'sonner';
-
 import { initializePerformanceMonitoring } from '@/utils/reportWebVitals';
 import { setupErrorHandling } from '@/utils/errorHandler';
-import { registerServiceWorker } from '@/utils/registerServiceWorker';
 import { preloadCriticalResources } from '@/utils/preloadResources';
 import { SpeedInsights } from '@vercel/speed-insights/react';
+import { registerSW } from 'virtual:pwa-register';
+
+registerSW({ immediate: true });
 
 const initializeApp = () => {
   const rootElement = document.getElementById('root');
@@ -18,7 +19,6 @@ const initializeApp = () => {
   setupErrorHandling();
   preloadCriticalResources();
   initializePerformanceMonitoring();
-  registerServiceWorker();
 
   const root = createRoot(rootElement);
   root.render(
