@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { NavMain } from '@/components/nav-main';
-import { NavProjects } from '@/components/nav-projects';
-import { NavUser } from '@/components/nav-user';
-import { TeamSwitcher } from '@/components/team-switcher';
+import { NavMain } from '@/components/blogs/sidebar/nav-main';
+// import { NavProjects } from '@/components/blogs/sidebar/nav-projects';
+import { NavUser } from '@/components/blogs/sidebar/nav-user';
+import { TeamSwitcher } from '@/components/blogs/sidebar/team-switcher';
 import {
   Sidebar,
   SidebarContent,
@@ -21,7 +21,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         <div className='absolute inset-0 bg-gradient-to-br from-slate-900/20 via-transparent to-neutral-900/20 pointer-events-none' />
         <div className='relative z-10'>
           <NavMain items={data.navMain} />
-          <NavProjects projects={data.projects} />
+          {/* <NavProjects projects={data.projects} /> */}
         </div>
       </SidebarContent>
       <SidebarFooter className='bg-gradient-to-t from-stone-950 via-zinc-950 to-slate-950 border-t border-zinc-800/50'>

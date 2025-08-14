@@ -40,3 +40,14 @@ export interface NavUserProps {
     facebook: string;
   };
 }
+
+export interface BlogArticleProps {
+  image: string;
+  category: string;
+  date: string;
+  title: string;
+  description: string;
+  tags: string[];
+  readingTime: string;
+  content: string;
+}

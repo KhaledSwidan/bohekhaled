@@ -36,4 +36,21 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src'),
     },
   },
+  build: {
+    chunkSizeWarningLimit: 1000, // رفع الحد من 500KB لـ 1MB علشان يقل التحذير
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          react: ['react', 'react-dom'],
+          vendor: [
+            'react-router-dom',
+            'lucide-react',
+            '@radix-ui/react-slot',
+            'sonner',
+          ],
+        },
+      },
+    },
+  },
+  server: { port: 4000 },
 });

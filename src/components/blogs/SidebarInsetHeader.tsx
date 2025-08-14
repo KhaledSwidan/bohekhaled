@@ -1,4 +1,4 @@
-import BlogContent from '@/components/blogs/BlogContent';
+import BlogContent from '@/components/blogs/BlogsContent';
 import { Separator } from '@/components/ui/separator';
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { motion } from 'framer-motion';
