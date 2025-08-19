@@ -1,4 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
+import type { ReactElement } from 'react';
 
 export interface TeamSwitcherProps {
   teams: {
@@ -49,5 +50,5 @@ export interface BlogArticleProps {
   description: string;
   tags: string[];
   readingTime: string;
-  content: string;
+  content: string | ReactElement;
 }

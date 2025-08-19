@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { allBlogs } from '@/db/blogs';
 import { BlogArticle } from '@/components/blogs/BlogArticle';
 import BacktoBlogs from '@/components/blogs/BacktoBlogs';
-import LoadingSection from '@/components/loading-section';
 
 export default function BlogDetails() {
   const { blogName } = useParams();
@@ -18,17 +17,6 @@ export default function BlogDetails() {
         <p className='text-lg text-slate-500'>المقالة غير موجودة</p>
         <BacktoBlogs />
       </div>
-    );
-  }
-
-  if (!blog.content) {
-    return (
-      <>
-        <LoadingSection />
-        <div className='flex justify-center items-center'>
-          <BacktoBlogs />
-        </div>
-      </>
     );
   }
 

@@ -1,7 +1,8 @@
-import BlogContent from '@/components/blogs/BlogsContent';
-import { Separator } from '@/components/ui/separator';
+// src/components/blogs/SidebarInsetHeader.tsx
+import { BlogsContent } from './BlogsContent';
 import { SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { motion } from 'framer-motion';
+import { Separator } from '@/components/ui/separator';
 import { Sparkles } from 'lucide-react';
 
 const SidebarInsetHeader = () => {
@@ -19,6 +20,7 @@ const SidebarInsetHeader = () => {
             orientation='vertical'
             className='mr-2 data-[orientation=vertical]:h-6 bg-slate-600'
           />
+
           <motion.div
             initial={{ x: -20, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -39,7 +41,9 @@ const SidebarInsetHeader = () => {
           </motion.div>
         </div>
       </motion.header>
-      <BlogContent />
+
+      {/* Blogs Grid */}
+      <BlogsContent />
     </SidebarInset>
   );
 };

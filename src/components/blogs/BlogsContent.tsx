@@ -1,23 +1,27 @@
-// src/pages/Blogs.tsx
-import { useState, useEffect } from 'react';
+// src/pages/BlogsContent.tsx
+import { useState, useEffect, memo } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
-import { allBlogs, type AllBlogsProps } from '@/db/blogs';
 import { Timer } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
+import type { BlogArticleProps } from '@/types/blogs';
+import { allBlogs } from '@/db/blogs';
 
-const BlogsContent = () => {
-  const [visibleBlogs, setVisibleBlogs] = useState<AllBlogsProps[]>([]);
+const BlogsContentComponent = () => {
+  const [visibleBlogs, setVisibleBlogs] = useState<BlogArticleProps[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [itemsToShow, setItemsToShow] = useState<number>(3);
 
   useEffect(() => {
-    setTimeout(() => {
+    setLoading(true);
+    const timeout = setTimeout(() => {
       setVisibleBlogs(allBlogs.slice(0, itemsToShow));
       setLoading(false);
-    }, 1200);
+    }, 800);
+    return () => clearTimeout(timeout);
   }, [itemsToShow]);
 
   const loadMore = () => {
@@ -28,11 +32,11 @@ const BlogsContent = () => {
   };
 
   return (
-    <div className='container mx-auto py-10'>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-5'>
+    <div className='container mx-auto py-10 px-5'>
+      <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8'>
         {loading
           ? Array.from({ length: itemsToShow }).map((_, idx) => (
-              <Card key={idx} className='overflow-hidden'>
+              <Card key={idx} className='overflow-hidden animate-pulse'>
                 <Skeleton className='h-48 w-full' />
                 <div className='p-4 space-y-3'>
                   <Skeleton className='h-4 w-24' />
@@ -43,53 +47,67 @@ const BlogsContent = () => {
               </Card>
             ))
           : visibleBlogs.map((blog, idx) => (
-              <Card
+              <motion.article
                 key={blog.title ?? idx}
-                className='overflow-hidden group hover:shadow-lg transition-shadow duration-300 border-zinc-600'
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: idx * 0.1, duration: 0.4 }}
+                className='group overflow-hidden rounded-lg border border-slate-700 shadow-md hover:shadow-lg transition-shadow duration-300 bg-slate-900'
               >
-                <div className='relative h-48'>
+                <figure className='relative h-48 overflow-hidden rounded-t-lg'>
                   <img
                     src={blog.image}
-                    alt={blog.title}
+                    alt={`صورة مقال: ${blog.title}`}
                     className='w-full h-full object-cover transition-transform duration-300 group-hover:scale-105'
+                    loading='lazy'
                   />
-                </div>
+                  <figcaption className='sr-only'>
+                    {blog.title} - صورة توضيحية للمقالة
+                  </figcaption>
+                </figure>
 
-                <CardHeader>
-                  <div className='flex items-center justify-between'>
+                <CardHeader className='p-4'>
+                  <div className='flex items-center justify-between mb-2'>
                     <Badge
                       className='bg-slate-500 text-slate-800'
                       variant='secondary'
                     >
                       {blog.category}
                     </Badge>
-                    <span className='text-xs text-slate-500'>{blog.date}</span>
+                    <time
+                      dateTime={new Date(blog.date).toISOString()}
+                      className='text-xs text-slate-500'
+                    >
+                      {blog.date}
+                    </time>
                   </div>
-                  <CardTitle className='line-clamp-2 text-slate-300'>
+                  <CardTitle className='text-lg text-slate-200 line-clamp-2'>
                     {blog.title}
                   </CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className='text-sm text-slate-400 line-clamp-3 mb-4'>
+
+                <CardContent className='p-4'>
+                  <p className='text-sm text-slate-400 line-clamp-3 mb-3'>
                     {blog.description}
                   </p>
 
-                  <div className='flex flex-wrap gap-2 mb-4'>
-                    {blog.tags.map((tag: string, i: number) => (
+                  <div className='flex flex-wrap gap-2 mb-3'>
+                    {blog.tags.map((tag, i) => (
                       <Badge
                         key={i}
                         variant='outline'
-                        className='text-xs border-slate-700 text-slate-500'
+                        className='text-xs border-slate-700 text-slate-500 hover:bg-slate-700/20 transition-colors duration-200'
                       >
                         {tag}
                       </Badge>
                     ))}
                   </div>
-                  <p className='flex justify-start items-center text-xs text-slate-500 dark:text-slate-400 mb-4'>
-                    <Timer className='mr-1' size={15} /> {blog.readingTime}
-                  </p>
-                  <div className='flex justify-start items-end'>
-                    {' '}
+
+                  <div className='flex items-center justify-between'>
+                    <span className='flex items-center text-xs text-slate-500'>
+                      <Timer className='mr-1' size={15} aria-hidden='true' />{' '}
+                      {blog.readingTime}
+                    </span>
                     <Button
                       asChild
                       variant='outline'
@@ -102,16 +120,16 @@ const BlogsContent = () => {
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
+              </motion.article>
             ))}
       </div>
 
-      {/* Load More */}
+      {/* Load More Button */}
       {!loading && visibleBlogs.length < allBlogs.length && (
         <div className='text-center mt-8'>
           <Button
             onClick={loadMore}
-            className='bg-slate-700 hover:bg-slate-800 text-white'
+            className='bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white transition-colors duration-300'
           >
             Load More
           </Button>
@@ -121,4 +139,4 @@ const BlogsContent = () => {
   );
 };
 
-export default BlogsContent;
+export const BlogsContent = memo(BlogsContentComponent);

@@ -9,6 +9,19 @@ import {
   PieChart,
 } from 'lucide-react';
 import avatar from '../../src/assets/avatar.jpg';
+import type { ReactElement } from 'react';
+import { BlogContent, LoadingContent } from '@/lib/blogs_helper';
+
+type BlogProps = {
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  tags: string[];
+  readingTime: string;
+  date: string;
+  content: ReactElement; // JSX هنا
+};
 
 export const data = {
   user: {
@@ -70,17 +83,7 @@ export const data = {
   ],
 };
 
-export interface AllBlogsProps {
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  tags: string[];
-  readingTime: string;
-  date: string;
-}
-
-export const allBlogs = [
+export const allBlogs: BlogProps[] = [
   {
     title: 'How to Improve Your Frontend Skills',
     description:
@@ -90,28 +93,28 @@ export const allBlogs = [
     tags: ['React', 'Performance', 'Best Practices'],
     readingTime: '5 min read',
     date: 'Aug 10, 2025',
-    content:""
+    content: <BlogContent />,
   },
   {
     title: '10 TailwindCSS Tips You Need to Know',
     description:
-    'Speed up your workflow and make your designs shine with these Tailwind tricks.',
+      'Speed up your workflow and make your designs shine with these Tailwind tricks.',
     image: '/images/tailwind.webp',
     category: 'CSS',
     tags: ['Tailwind', 'Design', 'Tips'],
     readingTime: '3 min read',
     date: 'Aug 8, 2025',
-    content:""
+    content: <LoadingContent />,
   },
   {
     title: 'Mastering Shadcn/UI Components',
     description:
-    'Learn how to customize shadcn/ui components to match your unique brand style.',
+      'Learn how to customize shadcn/ui components to match your unique brand style.',
     image: '/images/shadcnui.webp',
     category: 'UI/UX',
     tags: ['UI Design', 'Components', 'Customization'],
     readingTime: '4 min read',
     date: 'Aug 5, 2025',
-    content:""
+    content: <LoadingContent />,
   },
 ];
