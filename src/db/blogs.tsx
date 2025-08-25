@@ -9,19 +9,9 @@ import {
   PieChart,
 } from 'lucide-react';
 import avatar from '../../src/assets/avatar.jpg';
-import type { ReactElement } from 'react';
-import { BlogContent, LoadingContent } from '@/lib/blogs_helper';
-
-type BlogProps = {
-  title: string;
-  description: string;
-  image: string;
-  category: string;
-  tags: string[];
-  readingTime: string;
-  date: string;
-  content: ReactElement; // JSX هنا
-};
+import { LoadingContent } from '@/lib/blogs_helper';
+import { BlogContent } from '@/lib/blogs_contents_structure';
+import type { BlogProps } from '@/types/blogs';
 
 export const data = {
   user: {
@@ -93,18 +83,18 @@ export const allBlogs: BlogProps[] = [
     tags: ['React', 'Performance', 'Best Practices'],
     readingTime: '5 min read',
     date: 'Aug 10, 2025',
-    content: <BlogContent />,
+    content: <BlogContent.BlogContent_1 />,
   },
   {
-    title: '10 TailwindCSS Tips You Need to Know',
+    title: 'Understanding Hoisting in JavaScript',
     description:
-      'Speed up your workflow and make your designs shine with these Tailwind tricks.',
-    image: '/images/tailwind.webp',
-    category: 'CSS',
-    tags: ['Tailwind', 'Design', 'Tips'],
-    readingTime: '3 min read',
-    date: 'Aug 8, 2025',
-    content: <LoadingContent />,
+      'Hoisting is one of JavaScript’s tricky behaviors. In this article, we’ll explore what hoisting really means, how it works with var, let, const, functions, and classes, and the best practices to avoid common pitfalls.',
+    category: 'JavaScript',
+    tags: ['JavaScript', 'Hoisting', 'WebDev', 'CleanCode', 'TypeScript'],
+    image: '/images/hoisting.png',
+    readingTime: '6 min read',
+    date: 'Aug 25, 2025',
+    content: <BlogContent.BlogContent_2 />,
   },
   {
     title: 'Mastering Shadcn/UI Components',

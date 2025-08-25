@@ -52,3 +52,14 @@ export interface BlogArticleProps {
   readingTime: string;
   content: string | ReactElement;
 }
+
+export type BlogProps = {
+  title: string;
+  description: string;
+  image: string;
+  category: string;
+  tags: string[];
+  readingTime: string;
+  date: string;
+  content: ReactElement; // JSX هنا
+};

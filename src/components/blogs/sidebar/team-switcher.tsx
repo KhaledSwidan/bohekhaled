@@ -32,12 +32,12 @@ export function TeamSwitcher({ teams }: TeamSwitcherProps) {
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size='lg'
-              className='data-[state=open]:bg-zinc-800/50 data-[state=open]:text-zinc-100 hover:bg-slate-800/30 transition-all duration-300 backdrop-blur-sm border border-zinc-800/20 rounded-xl shadow-lg hover:shadow-zinc-900/50'
+              className='data-[state=open]:bg-slate-800/50 data-[state=open]:text-zinc-100 hover:bg-slate-800/30 transition-all duration-300 backdrop-blur-sm border border-zinc-800/20 rounded-xl shadow-lg hover:shadow-zinc-900/50'
             >
-              <div className='flex aspect-square size-10 items-center justify-center rounded-xl bg-gradient-to-br from-zinc-700 to-slate-800 text-zinc-100 shadow-inner'>
-                <activeTeam.logo className='size-5' />
+              <div className='flex items-center justify-center w-10 h-10 rounded-xl text-zinc-100 shadow-inner bg-zinc-700 p-1'>
+                <activeTeam.logo className='w-5 h-5' />
               </div>
-              <div className='grid flex-1 text-left text-sm leading-tight'>
+              <div className='grid text-left text-sm leading-tight'>
                 <span className='truncate font-bold text-zinc-100'>
                   {activeTeam.name}
                 </span>
@@ -49,7 +49,7 @@ export function TeamSwitcher({ teams }: TeamSwitcherProps) {
             </SidebarMenuButton>
           </DropdownMenuTrigger>
           <DropdownMenuContent
-            className='w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-xl bg-gradient-to-b from-zinc-900 to-slate-950 border border-zinc-700/50 backdrop-blur-xl shadow-2xl'
+            className='w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-xl bg-gradient-to-b from-zinc-800 to-slate-900 border border-zinc-700/50 backdrop-blur-xl shadow-2xl'
             align='start'
             side={isMobile ? 'bottom' : 'right'}
             sideOffset={4}

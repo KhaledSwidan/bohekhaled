@@ -9,7 +9,7 @@ const SidebarInsetHeader = () => {
   return (
     <SidebarInset>
       <motion.header
-        initial={{ y: -20, opacity: 0 }}
+        initial={{ y: -10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.4 }}
         className='flex h-16 shrink-0 items-center gap-2 transition-[width,height] ease-linear group-has-data-[collapsible=icon]/sidebar-wrapper:h-12 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/50'

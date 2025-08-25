@@ -28,7 +28,7 @@ export function NavMain({ items }: NavMainProps) {
                 className='flex items-center gap-3 text-zinc-300 font-medium w-full hover:text-zinc-100 transition-colors'
               >
                 {item.icon && (
-                  <div className='flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-zinc-800 to-slate-900 group-hover:from-zinc-700 group-hover:to-slate-800 transition-all duration-300 shadow-sm'>
+                  <div className='flex items-center justify-center rounded-lg bg-gradient-to-br from-zinc-800 to-slate-900 group-hover:from-zinc-700 group-hover:to-slate-800 transition-all duration-300 shadow-sm'>
                     <item.icon
                       size={16}
                       className='text-zinc-400 group-hover:text-zinc-200 transition-colors'
