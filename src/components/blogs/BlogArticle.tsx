@@ -25,7 +25,7 @@ function BlogArticleComponent({
   }, []);
 
   return (
-    <article className='container py-10 max-w-4xl' aria-labelledby='blog-title'>
+    <article className='container py-10 max-w-5xl' aria-labelledby='blog-title'>
       <div className='mb-6 flex'>
         <BacktoBlogs />
       </div>

@@ -9,7 +9,6 @@ import {
   PieChart,
 } from 'lucide-react';
 import avatar from '../../src/assets/avatar.jpg';
-import { LoadingContent } from '@/lib/blogs_helper';
 import { BlogContent } from '@/lib/blogs_contents_structure';
 import type { BlogProps } from '@/types/blogs';
 
@@ -97,14 +96,39 @@ export const allBlogs: BlogProps[] = [
     content: <BlogContent.BlogContent_2 />,
   },
   {
-    title: 'Mastering Shadcn/UI Components',
+    title: 'Getting Started with React.js: From Basics to Advanced',
     description:
-      'Learn how to customize shadcn/ui components to match your unique brand style.',
-    image: '/images/shadcnui.webp',
-    category: 'UI/UX',
-    tags: ['UI Design', 'Components', 'Customization'],
-    readingTime: '4 min read',
-    date: 'Aug 5, 2025',
-    content: <LoadingContent />,
+      'A complete step-by-step guide to learning React.js, from the core concepts to advanced techniques, and building modern, interactive web applications.',
+    image: '/images/reactjs.png',
+    category: 'ReactJS',
+    tags: [
+      'React.js',
+      'JavaScript',
+      'Frontend Development',
+      'Components',
+      'Best Practices',
+    ],
+    readingTime: '7 min read',
+    date: 'Aug 27, 2025',
+    content: <BlogContent.BlogContent_3 />,
+  },
+  {
+    title:
+      'JavaScript Fundamentals: Understanding var, let, and const in JavaScript',
+    description: `A comprehensive introduction to JavaScript, covering essential
+          concepts, syntax, and best practices for beginners. Start your coding
+          journey here!`,
+    image: '/images/javascript.png',
+    category: 'JavaScript',
+    tags: [
+      'Fundamentals',
+      'JavaScript',
+      'Frontend Development',
+      'ES6+',
+      'Best Practices',
+    ],
+    readingTime: '7 min read',
+    date: 'Aug 27, 2025',
+    content: <BlogContent.BlogContent_4 />,
   },
 ];

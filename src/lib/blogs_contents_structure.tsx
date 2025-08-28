@@ -1,3 +1,4 @@
+import LoadingSection from '@/components/loading-section';
 import {
   ArrowUp,
   Code,
@@ -13,10 +14,13 @@ import {
   Settings,
   Cpu,
   Layers,
+  KeyRound,
+  Braces,
+  Lock,
 } from 'lucide-react';
 
 const contentStyle = {
-  h2: 'text-xl font-semibold text-slate-200 mb-3',
+  h2: 'text-xl font-bold text-slate-200 mb-2',
   p: 'text-slate-300',
 };
 
@@ -490,6 +494,318 @@ function test() {
           "Relying on hoisting makes code harder to read. Declare before using,
           and your code will be cleaner and safer."
         </blockquote>
+      </article>
+    );
+  },
+  BlogContent_3: () => {
+    return (
+      <article
+        className='prose prose-invert max-w-none leading-relaxed'
+        itemScope
+        itemType='https://schema.org/Article'
+      >
+        <p itemProp='description'>
+          A complete step-by-step guide to learning React.js, from the core
+          concepts to advanced techniques, and building modern, interactive web
+          applications. React, developed by Facebook, is one of the most popular
+          JavaScript libraries for building fast, interactive, and scalable user
+          interfaces. It follows a component-based architecture, making code
+          more reusable and easier to maintain. React is widely used for
+          creating single-page applications (SPAs), and its virtual DOM ensures
+          efficient rendering and smooth user experiences.
+        </p>
+        <LoadingSection />
+      </article>
+    );
+  },
+  BlogContent_4: () => {
+    return (
+      <article
+        className='prose prose-invert max-w-none leading-relaxed'
+        itemScope
+        itemType='https://schema.org/Article'
+      >
+        <p itemProp='description'>
+          A comprehensive introduction to JavaScript, covering essential
+          concepts, syntax, and best practices for beginners. Start your coding
+          journey here!
+        </p>
+        <section
+          aria-labelledby='variablesFundamentals-heading'
+          className='my-8'
+        >
+          <div>
+            {' '}
+            <h2 id='variablesFundamentals-heading' className={contentStyle.h2}>
+              1) Understanding <code>var</code>, <code>let</code>, and{' '}
+              <code>const</code> in JavaScript
+            </h2>
+            <p>
+              Variables are the foundation of JavaScript programming. In this
+              guide, we'll explore <strong>var</strong>, <strong>let</strong>,
+              and <strong>const</strong>, their <em>scope</em>,{' '}
+              <em>behavior</em>, and <em>best practices</em>. By the end, you'll
+              know exactly when and why to use each one.
+            </p>
+          </div>
+          {/* VAR */}
+          <section
+            aria-labelledby='var-section'
+            className='mt-5 mb-2 scroll-mt-24'
+          >
+            <div className='mb-3 flex items-center gap-3'>
+              <KeyRound
+                className='h-6 w-6 text-violet-400'
+                aria-hidden='true'
+              />
+              <h3 id='var-section' className='text-lg font-semibold'>
+                <code className='rounded bg-zinc-800 px-2 py-1'>var</code> —
+                Function & Global Scope
+              </h3>
+            </div>
+            <p className='text-zinc-300'>
+              The <code className='rounded bg-zinc-800 px-1'>var</code> keyword
+              has
+              <strong> function-level</strong> and{' '}
+              <strong> global-level</strong> scope. Declared globally, it's
+              available anywhere; inside a function, it's limited to that
+              function.
+            </p>
+
+            <figure className='mb-4'>
+              <figcaption className='mb-1 mt-2 flex items-center gap-1'>
+                <Lightbulb
+                  className='h-4 w-4 text-yellow-400'
+                  aria-hidden='true'
+                />
+                <h4 className='text-base font-medium'>Example</h4>
+              </figcaption>
+              <pre
+                className='bg-slate-800 p-4 rounded-md overflow-x-auto'
+                aria-label='JavaScript example for var'
+              >
+                <code>
+                  {`// Global scope
+var a = 5;
+
+function fun() {
+var b = 4;
+console.log(a); // ✅ prints 5
+console.log(b); // ✅ prints 4
+}
+fun();
+
+console.log(a); // ✅ prints 5
+console.log(b); // ❌ ReferenceError (b is not defined outside the function)`}
+                </code>
+              </pre>
+            </figure>
+
+            <ul className='mt-4 space-y-2'>
+              <li className='flex items-start gap-2'>
+                <CheckCircle2 className='mt-0.5 h-5 w-5 shrink-0 text-emerald-400' />
+                <span>Works globally if declared outside functions.</span>
+              </li>
+              <li className='flex items-start gap-2'>
+                <CheckCircle2 className='mt-0.5 h-5 w-5 shrink-0 text-emerald-400' />
+                <span>Function-scoped if declared inside a function.</span>
+              </li>
+              <li className='flex items-start gap-2'>
+                <AlertTriangle className='mt-0.5 h-5 w-5 shrink-0 text-amber-400' />
+                <span>
+                  Does <strong>not</strong> respect block scope (e.g., inside{' '}
+                  <code>if</code> or <code>for</code>).
+                </span>
+              </li>
+            </ul>
+          </section>
+          <hr className='my-4 border-slate-700' />
+
+          {/* LET */}
+          <section
+            aria-labelledby='let-section'
+            className='mt-5 mb-2 scroll-mt-24'
+          >
+            <div className='mb-3 flex items-center gap-3'>
+              <Braces className='h-6 w-6 text-fuchsia-400' aria-hidden='true' />
+              <h3 id='let-section' className='text-lg font-semibold'>
+                <code className='rounded bg-zinc-800 px-2 py-1'>let</code> —
+                Block Scope
+              </h3>
+            </div>
+            <p className='text-zinc-300'>
+              <code className='rounded bg-zinc-800 px-1'>let</code> introduces
+              <strong> block-level scope</strong>. A variable exists only inside
+              the surrounding <code>{'{}'}</code> where it is defined.
+            </p>
+            <figure className='mb-4'>
+              <figcaption className='mb-1 mt-2 flex items-center gap-1'>
+                <Lightbulb
+                  className='h-4 w-4 text-yellow-400'
+                  aria-hidden='true'
+                />
+                <h4 className='text-base font-medium'>Example</h4>
+              </figcaption>
+              <pre
+                className='bg-slate-800 p-4 rounded-md overflow-x-auto'
+                aria-label='JavaScript example for var'
+              >
+                <code>
+                  {`var a = 5;
+
+if (a > 1) {
+var b = 6; // function/global scoped
+let c = 7; // block scoped
+}
+
+console.log(a); // ✅ prints 5
+console.log(b); // ✅ prints 6 (because var is not block-scoped)
+console.log(c); // ❌ ReferenceError (c only exists inside the if block)`}
+                </code>
+              </pre>
+            </figure>
+
+            <ul className='mt-4 space-y-2'>
+              <li className='flex items-start gap-2'>
+                <CheckCircle2 className='mt-0.5 h-5 w-5 shrink-0 text-emerald-400' />
+                <span>
+                  Safer than <code>var</code> because it respects block
+                  boundaries.
+                </span>
+              </li>
+              <li className='flex items-start gap-2'>
+                <CheckCircle2 className='mt-0.5 h-5 w-5 shrink-0 text-emerald-400' />
+                <span>
+                  Preferred in loops (<code>for</code>, <code>while</code>) to
+                  avoid leaks.
+                </span>
+              </li>
+              <li className='flex items-start gap-2'>
+                <AlertTriangle className='mt-0.5 h-5 w-5 shrink-0 text-amber-400' />
+                <span>Cannot be redeclared in the same block.</span>
+              </li>
+            </ul>
+          </section>
+          <hr className='my-4 border-slate-700' />
+
+          {/* CONST */}
+          <section
+            aria-labelledby='const-section'
+            className='mt-5 mb-2 scroll-mt-24'
+          >
+            <div className='mb-3 flex items-center gap-3'>
+              <Lock className='h-6 w-6 text-sky-400' aria-hidden='true' />
+              <h3 id='const-section' className='text-lg font-semibold'>
+                <code className='rounded bg-zinc-800 px-2 py-1'>const</code> —
+                Constants & Immutability
+              </h3>
+            </div>
+            <p className='text-zinc-300'>
+              <code className='rounded bg-zinc-800 px-1'>const</code> declares
+              <strong> constants</strong>. The variable reference cannot be
+              reassigned. Objects and arrays remain <em>mutable</em> (their
+              contents can change), but the reference stays the same.
+            </p>
+
+            <figure className='mb-4'>
+              <figcaption className='mb-1 mt-2 flex items-center gap-1'>
+                <Lightbulb
+                  className='h-4 w-4 text-yellow-400'
+                  aria-hidden='true'
+                />
+                <h4 className='text-base font-medium'>Example</h4>
+              </figcaption>
+              <pre
+                className='bg-slate-800 p-4 rounded-md overflow-x-auto'
+                aria-label='JavaScript example for var'
+              >
+                <code>
+                  {`// Constant primitive value
+const x = 5;
+x = 6; // ❌ TypeError: Assignment to constant variable
+
+// Objects with const
+const obj = { name: 'Ali', age: 21 };
+obj.name = 'Omar';
+console.log(obj); // ✅ { name: 'Omar', age: 21 }
+
+// Arrays with const
+const arr = [1, 2, 3];
+arr[1] = 4;
+console.log(arr); // ✅ [1, 4, 3]`}
+                </code>
+              </pre>
+            </figure>
+
+            <ul className='mt-4 space-y-2'>
+              <li className='flex items-start gap-2'>
+                <CheckCircle2 className='mt-0.5 h-5 w-5 shrink-0 text-emerald-400' />
+                <span>
+                  Guarantees the <em>reference</em> will not change.
+                </span>
+              </li>
+              <li className='flex items-start gap-2'>
+                <CheckCircle2 className='mt-0.5 h-5 w-5 shrink-0 text-emerald-400' />
+                <span>
+                  Ideal for constants, configs, and function expressions.
+                </span>
+              </li>
+              <li className='flex items-start gap-2'>
+                <AlertTriangle className='mt-0.5 h-5 w-5 shrink-0 text-amber-400' />
+                <span>
+                  Objects/arrays remain mutable — only the binding is constant.
+                </span>
+              </li>
+            </ul>
+          </section>
+          <hr className='my-4 border-slate-700' />
+
+          {/* Best Practices */}
+          <section
+            aria-labelledby='best-practices'
+            className='mt-5 mb-2 scroll-mt-24'
+          >
+            <div className='mb-3 flex items-center gap-3'>
+              <Lightbulb
+                className='h-6 w-6 text-yellow-300'
+                aria-hidden='true'
+              />
+              <h3 id='best-practices' className='text-lg font-semibold'>
+                Best Practices
+              </h3>
+            </div>
+            <ul className='space-y-2 text-base'>
+              <li className='flex items-start gap-2'>
+                <CheckCircle2 className='mt-0.5 h-5 w-5 shrink-0 text-emerald-400' />
+                <span>
+                  Prefer <code className='rounded bg-zinc-800 px-1'>const</code>{' '}
+                  by default.
+                </span>
+              </li>
+              <li className='flex items-start gap-2'>
+                <CheckCircle2 className='mt-0.5 h-5 w-5 shrink-0 text-emerald-400' />
+                <span>
+                  Use <code className='rounded bg-zinc-800 px-1'>let</code> when
+                  reassignment is required.
+                </span>
+              </li>
+              <li className='flex items-start gap-2'>
+                <AlertTriangle className='mt-0.5 h-5 w-5 shrink-0 text-amber-400' />
+                <span>
+                  Avoid <code className='rounded bg-zinc-800 px-1'>var</code>{' '}
+                  unless maintaining legacy code.
+                </span>
+              </li>
+            </ul>
+          </section>
+
+          <footer className='mt-8 rounded-xl border border-white/10 bg-zinc-900/60 p-4 text-sm text-zinc-300'>
+            📝 <span className='sr-only'>Summary:</span> Use{' '}
+            <strong>const</strong> for constants,
+            <strong> let</strong> for reassignable values, and avoid{' '}
+            <strong>var</strong> unless you have a specific reason.
+          </footer>
+        </section>
       </article>
     );
   },
