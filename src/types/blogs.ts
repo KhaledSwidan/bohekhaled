@@ -1,5 +1,5 @@
 import type { LucideIcon } from 'lucide-react';
-import type { ReactElement } from 'react';
+import type { ReactElement, ReactNode } from 'react';
 
 export interface TeamSwitcherProps {
   teams: {
@@ -64,3 +64,73 @@ export type BlogProps = {
   date: string;
   content: ReactElement; // JSX هنا
 };
+
+// ==================== Blog Article Types ====================
+export interface BlogContentConfig {
+  title: string;
+  description: string;
+  sections: BlogSectionConfig[];
+}
+
+export interface BlogSectionConfig {
+  id: string;
+  title: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconColor: string;
+  content: React.ReactNode;
+}
+
+// ==================== Blog Elements Types ====================
+export interface BlogSectionProps {
+  id: string;
+  title: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconColor: string;
+  children: ReactNode;
+  className?: string;
+}
+
+export interface BlogHeaderProps {
+  title: string;
+  description: string;
+}
+
+export interface BlogCodeProps {
+  code: string;
+  language?: string;
+  className?: string;
+}
+
+export interface BlogFigureProps {
+  caption: string;
+  code: string;
+  language?: string;
+}
+
+export interface BlogQuoteProps {
+  text: string;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconColor?: string;
+}
+
+interface BlogListItem {
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconColor: string;
+  title: string;
+  content: string;
+}
+
+export interface BlogListProps {
+  items: BlogListItem[];
+  type?: 'ul' | 'ol';
+}
+
+export interface BestPracticeItem {
+  type: 'success' | 'warning' | 'info';
+  text: string;
+}
+
+export interface BlogBestPracticesProps {
+  title?: string;
+  items: BestPracticeItem[];
+}

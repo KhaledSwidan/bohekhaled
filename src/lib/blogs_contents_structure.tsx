@@ -1,3 +1,5 @@
+// src/lib/blogs_contents_structure.tsx
+
 import LoadingSection from '@/components/loading-section';
 import {
   ArrowUp,
