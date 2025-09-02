@@ -66,24 +66,32 @@ export type BlogProps = {
 };
 
 // ==================== Blog Article Types ====================
+
+export interface BlogContentConfigLoading {
+  description: ReactNode;
+}
+
 export interface BlogContentConfig {
   title: string;
-  description: string;
+  description: ReactNode;
   sections: BlogSectionConfig[];
+  blogQuoteText: ReactNode;
 }
 
 export interface BlogSectionConfig {
   id: string;
   title: string;
+  description: ReactNode;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   iconColor: string;
-  content: React.ReactNode;
+  content: ReactNode;
 }
 
 // ==================== Blog Elements Types ====================
 export interface BlogSectionProps {
   id: string;
   title: string;
+  description: ReactNode;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   iconColor: string;
   children: ReactNode;
@@ -92,9 +100,8 @@ export interface BlogSectionProps {
 
 export interface BlogHeaderProps {
   title: string;
-  description: string;
+  description: ReactNode;
 }
-
 export interface BlogCodeProps {
   code: string;
   language?: string;
@@ -108,16 +115,16 @@ export interface BlogFigureProps {
 }
 
 export interface BlogQuoteProps {
-  text: string;
+  text: ReactNode;
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   iconColor?: string;
 }
 
 interface BlogListItem {
-  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
-  iconColor: string;
-  title: string;
-  content: string;
+  icon?: React.ComponentType<React.SVGProps<SVGSVGElement>>;
+  iconColor?: string;
+  title?: string;
+  content: ReactNode;
 }
 
 export interface BlogListProps {
@@ -127,7 +134,7 @@ export interface BlogListProps {
 
 export interface BestPracticeItem {
   type: 'success' | 'warning' | 'info';
-  text: string;
+  text: ReactNode;
 }
 
 export interface BlogBestPracticesProps {

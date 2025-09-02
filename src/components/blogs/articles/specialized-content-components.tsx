@@ -1,27 +1,13 @@
-/* eslint-disable react-refresh/only-export-components */
 // src/lib/blogs_contents_structure.tsx
 
-import LoadingSection from '@/components/loading-section';
 import {
   BlogSection,
   BlogHeader,
   BlogCode,
-  BlogQuote,
-  BlogList,
   BlogFigure,
   BlogBestPractices,
-} from '@/components/blogs/blog-elements';
+} from '@/components/blogs/articles/blog-elements';
 import {
-  ArrowUp,
-  Code,
-  AlertTriangle,
-  FileCode2,
-  Quote,
-  Rocket,
-  Palette,
-  Settings,
-  Cpu,
-  Layers,
   KeyRound,
   Braces,
   Lock,
@@ -29,216 +15,10 @@ import {
   Info,
   Globe,
   Database,
-  //   Lightbulb,
-  //   CheckCircle2,
-  //   BookOpen,
-  //   Zap,
-  //   CheckCircle,
-  //   ScrollText,
-  //   Server,
-  //   ArrowLeft,
-  //   ShieldCheck,
-  //   MessageCircleWarning,
-  //   ChevronsLeftRightEllipsis,
-  //   FileCode,
-  //   Footprints,
-  //   Sparkles,
-  //   Loader2,
-  //   Pin,
 } from 'lucide-react';
-import type { BlogContentConfig } from '@/types/blogs';
-
-// ==================== Content Configurations ====================
-const frontendSkillsConfig: BlogContentConfig = {
-  title: 'كيفية تحسين مهاراتك في Frontend',
-  description: 'نصائح عملية وأدوات ومنهجية لتصبح مطور frontend أفضل في 2025',
-  sections: [
-    {
-      id: 'basics',
-      title: '1. إتقان الأساسيات (HTML, CSS, JavaScript)',
-      icon: Code,
-      iconColor: 'text-blue-400',
-      content: (
-        <>
-          <p>حتى لو كنت متخصص في React أو Next.js، الأساسيات لازم تكون قوية:</p>
-          <BlogList
-            items={[
-              {
-                icon: Code,
-                iconColor: 'text-orange-400',
-                title: 'HTML Semantics:',
-                content:
-                  'استخدم تاجات مثل <article>، <section>، <header> بشكل صحيح للوصولية والـ SEO.',
-              },
-              {
-                icon: Palette,
-                iconColor: 'text-pink-400',
-                title: 'CSS & Tailwind:',
-                content:
-                  'ركز على flex، grid، responsive design، و Tailwind utilities.',
-              },
-              {
-                icon: Cpu,
-                iconColor: 'text-green-400',
-                title: 'JavaScript ES6+:',
-                content:
-                  'تعلم destructuring، spread operators، async/await، و DOM manipulation.',
-              },
-            ]}
-          />
-
-          <BlogFigure
-            caption='مثال عملي على HTML دلالي'
-            code={`<article>
-  <header>
-    <h1>عنوان مدونتي</h1>
-    <time datetime="2025-08-19">19 أغسطس، 2025</time>
-  </header>
-  <p>هذا مثال على HTML دلالي.</p>
-</article>`}
-          />
-        </>
-      ),
-    },
-    {
-      id: 'frameworks',
-      title: '2. تعلم Framework حديث بعمق (React, Next.js, Vue/Angular)',
-      icon: Layers,
-      iconColor: 'text-purple-400',
-      content: (
-        <>
-          <p>
-            أغلب الشركات الآن تستخدم React أو Next.js للمشاريع الحديثة. المهارات
-            الأساسية:
-          </p>
-          <BlogList
-            items={[
-              {
-                icon: Code,
-                iconColor: 'text-cyan-400',
-                title: 'React:',
-                content: 'Hooks (useState, useEffect)، Context، Custom Hooks.',
-              },
-              {
-                icon: Rocket,
-                iconColor: 'text-indigo-400',
-                title: 'Next.js:',
-                content: 'SSR، Static Generation، API routes.',
-              },
-              {
-                icon: Settings,
-                iconColor: 'text-emerald-400',
-                title: 'State Management:',
-                content: 'Zustand، Redux، أو React Query.',
-              },
-            ]}
-          />
-
-          <BlogFigure
-            caption='مثال على React Hook'
-            code={`import { useState, useEffect } from 'react';
-
-function Counter() {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    document.title = \`Count: \${count}\`;
-  }, [count]);
-
-  return <button onClick={() => setCount(count + 1)}>Count: {count}</button>;
-}`}
-          />
-        </>
-      ),
-    },
-  ],
-};
-
-const hoistingConfig: BlogContentConfig = {
-  title: 'فهم Hoisting في JavaScript',
-  description:
-    'Hoisting هو سلوك JavaScript في وقت الترجمة حيث تتم معالجة التصريحات قبل التنفيذ',
-  sections: [
-    {
-      id: 'what-gets-hoisted',
-      title: 'ما الذي يتم رفعه فعلاً؟',
-      icon: ArrowUp,
-      iconColor: 'text-green-400',
-      content: (
-        <BlogList
-          items={[
-            {
-              icon: Code,
-              iconColor: 'text-blue-400',
-              title: 'var',
-              content: 'يتم رفعه وتهيئته بـ undefined.',
-            },
-            {
-              icon: FileCode2,
-              iconColor: 'text-purple-400',
-              title: 'Function declarations',
-              content: 'يتم رفعه مع تعريفه (يمكن استدعاؤه مبكراً).',
-            },
-            {
-              icon: AlertTriangle,
-              iconColor: 'text-yellow-400',
-              title: 'let / const / class',
-              content: 'يتم رفعه لكن بدون تهيئة (TDZ).',
-            },
-          ]}
-        />
-      ),
-    },
-  ],
-};
-
-// ==================== Content Components ====================
-export const BlogContent = {
-  BlogContent_1: () => <BlogArticleRenderer config={frontendSkillsConfig} />,
-
-  BlogContent_2: () => <BlogArticleRenderer config={hoistingConfig} />,
-
-  BlogContent_3: () => (
-    <article className='prose prose-invert max-w-none leading-relaxed'>
-      <p>
-        دليل شامل لتعلم React.js من المفاهيم الأساسية إلى التقنيات المتقدمة...
-      </p>
-      <LoadingSection />
-    </article>
-  ),
-
-  BlogContent_4: () => <JavaScriptFundamentalsContent />,
-  BlogContent_5: () => <ApiReactContent />,
-};
-
-// ==================== Reusable Article Renderer ====================
-function BlogArticleRenderer({ config }: { config: BlogContentConfig }) {
-  return (
-    <article className='prose prose-invert max-w-none leading-relaxed'>
-      <BlogHeader title={config.title} description={config.description} />
-
-      {config.sections.map((section) => (
-        <BlogSection
-          key={section.id}
-          id={section.id}
-          title={section.title}
-          icon={section.icon}
-          iconColor={section.iconColor}
-        >
-          {section.content}
-        </BlogSection>
-      ))}
-
-      <BlogQuote
-        icon={Quote}
-        text='أفضل طريقة لتصبح مطور Frontend محترف هي دمج التعلم العملي مع المشاريع الحقيقية ومواكبة أحدث الاتجاهات يومياً.'
-      />
-    </article>
-  );
-}
 
 // ==================== Specialized Content Components ====================
-function JavaScriptFundamentalsContent() {
+export function JavaScriptFundamentalsContent() {
   type BestPracticeType = 'success' | 'warning' | 'info';
   interface BestPracticeItem {
     type: BestPracticeType;
@@ -321,8 +101,8 @@ console.log(obj); // ✅ { name: 'عمر', age: 21 }`,
   return (
     <article className='prose prose-invert max-w-none leading-relaxed'>
       <BlogHeader
-        title='أساسيات JavaScript: فهم var، let، و const'
-        description='مقدمة شاملة لـ JavaScript تغطي المفاهيم الأساسية والصياغة وأفضل الممارسات للمبتدئين'
+        title='An Introduction to JavaScript'
+        description='A comprehensive introduction to JavaScript, covering essential concepts, syntax, and best practices for beginners. Start your coding journey here!'
       />
 
       {variableTypes.map((varType) => (
@@ -332,26 +112,56 @@ console.log(obj); // ✅ { name: 'عمر', age: 21 }`,
           title={varType.title}
           icon={varType.icon}
           iconColor={varType.iconColor}
+          description={varType.description}
         >
           <p className='text-zinc-300'>{varType.description}</p>
-          <BlogFigure caption='مثال' code={varType.example} />
+          <BlogFigure caption='Example' code={varType.example} />
           <BlogBestPractices items={varType.features} />
         </BlogSection>
       ))}
 
       <BlogBestPractices
-        title='أفضل الممارسات'
+        title='Best Practices'
         items={[
-          { type: 'success', text: 'فضل const بشكل افتراضي' },
-          { type: 'success', text: 'استخدم let عند الحاجة لإعادة التعيين' },
-          { type: 'warning', text: 'تجنب var إلا في الكود القديم' },
+          {
+            type: 'success',
+            text: (
+              <>
+                {' '}
+                Prefer <code className='rounded bg-zinc-800 px-1'>
+                  const
+                </code>{' '}
+                by default.
+              </>
+            ),
+          },
+          {
+            type: 'success',
+            text: (
+              <>
+                {' '}
+                Use <code className='rounded bg-zinc-800 px-1'>let</code> when
+                reassignment is required.
+              </>
+            ),
+          },
+          {
+            type: 'warning',
+            text: (
+              <>
+                {' '}
+                Avoid <code className='rounded bg-zinc-800 px-1'>var</code>{' '}
+                unless maintaining legacy code.
+              </>
+            ),
+          },
         ]}
       />
     </article>
   );
 }
 
-function ApiReactContent() {
+export function ApiReactContent() {
   return (
     <article
       dir='rtl'
@@ -367,6 +177,7 @@ function ApiReactContent() {
         title='ما هو الـ API ولماذا نحتاجه؟'
         icon={Network}
         iconColor='text-blue-400'
+        description='API (واجهة برمجة التطبيقات) هي مجموعة من القواعد التي تسمح لتطبيقين بالتواصل مع بعضهما البعض.'
       >
         <p className='text-slate-300'>
           الـ API هو حلقة الوصل بين نظامين مختلفين لتبادل البيانات بسهولة. تخيله
@@ -380,6 +191,7 @@ function ApiReactContent() {
         title='أنواع الـ APIs'
         icon={Info}
         iconColor='text-blue-400'
+        description='هناك أنواع مختلفة من الـ APIs بناءً على الوصول والاستخدام.'
       >
         <div className='space-y-4'>
           <div>
@@ -407,6 +219,7 @@ function ApiReactContent() {
         title='طرق جلب البيانات'
         icon={Database}
         iconColor='text-yellow-300'
+        description='طرق شائعة لجلب البيانات من APIs في React'
       >
         <div className='space-y-6'>
           <div>
@@ -489,6 +302,7 @@ function UsersWithAxios() {
         title='تأمين مفاتيح الـ API'
         icon={KeyRound}
         iconColor='text-indigo-600'
+        description='أفضل الممارسات لحماية مفاتيح الـ API'
       >
         <p>عند التعامل مع APIs تتطلب مفتاح، راعي الأمان:</p>
         <ol className='list-decimal list-inside space-y-2 text-slate-300'>

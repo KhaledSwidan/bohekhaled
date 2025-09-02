@@ -11,8 +11,8 @@ import {
   PieChart,
 } from 'lucide-react';
 import avatar from '../../src/assets/avatar.jpg';
-import { BlogContent } from '@/lib/blogs_contents_structure';
 import type { BlogProps } from '@/types/blogs';
+import { BlogContent } from '@/components/blogs/articles/content-components';
 
 export const data = {
   user: {
