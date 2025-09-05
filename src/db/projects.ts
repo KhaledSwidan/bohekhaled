@@ -1,3 +1,5 @@
+import type { Variants } from 'framer-motion';
+
 const projects = [
   {
     id: 1,
@@ -80,21 +82,26 @@ const projects = [
     githubUrl: 'https://github.com/KhaledSwidan/arsha',
     featured: false,
   },
-  // {
-  //   id: 6,
-  //   title: 'Learning Management System',
-  //   description:
-  //     'A comprehensive LMS with course creation, student progress tracking, video streaming, and interactive quizzes.',
-  //   image:
-  //     'https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=600',
-  //   technologies: ['', '', '', '', ''],
-  //   liveUrl: '',
-  //   githubUrl: '',
-  //   featured: false,
-  // },
+  {
+    id: 6,
+    title: 'Modern Landing Page with Next.js & Tailwind',
+    description:
+      'This project is a modern responsive landing page built with Next.js 14 and Tailwind CSS. It demonstrates best practices in building scalable, maintainable frontend applications with a strong focus on: Performance, Responsive design, Reusable components, Clean code structure, and Styling. This project can be used as a starter template for landing pages, product showcases, or SaaS marketing websites.',
+    image: '/images/projects/nxlandingpage.png',
+    technologies: [
+      'Next.js',
+      'Tailwind CSS',
+      'TypeScript',
+      'Netlify',
+      'Shadcn-UI',
+    ],
+    liveUrl: 'https://nxlandingpage.netlify.app/',
+    githubUrl: 'https://github.com/KhaledSwidan/landing-page-nextjs',
+    featured: true,
+  },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
@@ -104,7 +111,7 @@ const containerVariants = {
   },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   visible: {
     opacity: 1,

@@ -27,12 +27,12 @@ const FeaturedProjects = () => {
           }`}
         >
           <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-            <Card className='overflow-hidden group transition-all duration-300 bg-zinc-800/50 border-zinc-700/50 hover:border-zinc-600/50 hover:shadow-2xl'>
+            <Card className='overflow-hidden group transition-all duration-300 border-zinc-700/50 hover:border-zinc-600/50 hover:shadow-2xl py-0 bg-transparent'>
               <div className='relative overflow-hidden'>
                 <img
                   src={project.image}
                   alt={project.title}
-                  className='w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500'
+                  className='w-full h-72 object-cover bg-transparent group-hover:scale-105 transition-transform duration-500'
                 />
                 {/* Enhanced overlay with glassmorphism effect */}
                 <div className='absolute inset-0 group-hover:bg-zinc-900/60 transition-all duration-300 flex items-center justify-center space-x-4'>
