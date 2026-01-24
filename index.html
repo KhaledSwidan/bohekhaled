@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+    <!-- Android Chrome -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/android-chrome-512x512.png"
+    />
+
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- ✅ Essential Meta Only -->
+    <title>Khaled Swidan - Frontend Developer</title>
+    <meta
+      name="description"
+      content="Frontend Web Developer specializing in React.js, Next.js, TypeScript, and modern web technologies."
+    />
+
+    <!-- ✅ Critical Resources -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- ✅ Preconnect for Performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ✅ Security Headers -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+
+    <!-- ✅ Critical CSS -->
+    <link rel="stylesheet" href="/styles/critical.css" />
+  </head>
+  <body>
+    <!-- ✅ Loading Screen -->
+    <div id="loading-screen">
+      <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <h2>Loading Portfolio</h2>
+        <p class="loading-dots">Please wait</p>
+      </div>
+    </div>
+
+    <!-- ✅ Fallback for JS disabled -->
+    <noscript>
+      <div class="noscript-fallback">
+        <div class="noscript-content">
+          <div class="noscript-icon">⚡</div>
+          <h1>JavaScript Required</h1>
+          <p>This portfolio requires JavaScript to function properly.</p>
+          <p>Please enable JavaScript in your browser settings.</p>
+        </div>
+      </div>
+    </noscript>
+
+    <!-- ✅ App Root -->
+    <div id="root"></div>
+
+    <!-- ✅ Scripts -->
+    <script type="module" src="/src/main.tsx"></script>
+    <script src="/scripts/performance.js"></script>
+  </body>
+</html>
