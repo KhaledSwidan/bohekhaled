@@ -17,7 +17,7 @@ export default function Hero() {
         <div className='space-y-8'>
           <ProfileImage />
           <MainContent />
-          <SocialLinks />
+          <SocialLinks variant='hero' />
           <CTAButtons />
         </div>
 

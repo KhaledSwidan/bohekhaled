@@ -1,13 +1,14 @@
-import { homeItemVariants } from '@/db/home';
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { Button } from '../ui/button';
 import { Link } from 'react-router-dom';
 import { Mail } from 'lucide-react';
+import { useAnimationVariants } from '@/hooks/useAnimationVariants';
 
 const CallToAction = () => {
+  const { item } = useAnimationVariants();
   return (
-    <motion.div
-      variants={homeItemVariants}
+    <m.div
+      variants={item}
       className='text-center pt-8 border-t border-slate-700/30'
     >
       <p className='text-slate-400 max-w-2xl mx-auto mb-6'>
@@ -16,14 +17,14 @@ const CallToAction = () => {
       <Button
         asChild
         size='lg'
-        className='bg-gradient-to-r from-slate-700 to-slate-800 hover:from-slate-600 hover:to-slate-700 text-slate-100 font-medium transition-all duration-300 hover:scale-105'
+        className='group bg-slate-700 hover:bg-slate-600 text-slate-100'
       >
         <Link to='/contact'>
-          Get In Touch
-          <Mail className='w-4 h-4 ml-2' />
+          Let's Talk
+          <Mail className='w-4 h-4 ml-2 group-hover:-translate-x-1 transition-transform duration-200' />
         </Link>
       </Button>
-    </motion.div>
+    </m.div>
   );
 };
 

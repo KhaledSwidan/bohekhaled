@@ -5,16 +5,8 @@ import {
   ErrorBoundary as ReactErrorBoundary,
 } from 'react-error-boundary';
 import { AlertCircle, RefreshCw, Home } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
 
 function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
-  const navigate = useNavigate();
-
-  const handleGoHome = () => {
-    navigate('/');
-    resetErrorBoundary();
-  };
-
   const isDev = import.meta.env.DEV;
 
   return (
@@ -46,14 +38,17 @@ function ErrorFallback({ error, resetErrorBoundary }: FallbackProps) {
         <div className='flex gap-3 justify-center'>
           <button
             onClick={resetErrorBoundary}
-            className='inline-flex items-center gap-2 bg-primary text-primary-foreground px-5 py-2.5 rounded-xl shadow hover:opacity-90 transition-all'
+            className='group bg-slate-700 hover:bg-slate-600 text-slate-100'
           >
             <RefreshCw size={18} />
             Try Again
           </button>
           <button
-            onClick={handleGoHome}
-            className='inline-flex items-center gap-2 bg-secondary text-secondary-foreground px-5 py-2.5 rounded-xl shadow hover:opacity-90 transition-all'
+            onClick={() => {
+              resetErrorBoundary();
+              window.location.href = '/';
+            }}
+            className='group bg-slate-700 hover:bg-slate-600 text-slate-100'
           >
             <Home size={18} />
             Go Home
