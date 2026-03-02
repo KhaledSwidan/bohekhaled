@@ -12,6 +12,7 @@ const Projects = lazy(() => import('@/pages/projects-page'));
 const Contact = lazy(() => import('@/pages/contact-page'));
 const Blogs = lazy(() => import('@/pages/blogs'));
 const BlogDetails = React.lazy(() => import('@/pages/BlogDetails'));
+const Page2026 = lazy(() => import('@/pages/page2026'));
 const NotFoundPage = lazy(() => import('@/pages/not-found-page'));
 
 const AppRoutes = () => (
@@ -46,6 +47,14 @@ const AppRoutes = () => (
         element={
           <MainLayout>
             <Contact />
+          </MainLayout>
+        }
+      />
+      <Route
+        path='/page2026'
+        element={
+          <MainLayout>
+            <Page2026 />
           </MainLayout>
         }
       />

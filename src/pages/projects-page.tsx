@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { domAnimation, LazyMotion, m } from 'framer-motion';
 import { containerVariants } from '@/db/projects';
 import { useInView } from 'react-intersection-observer';
 import FeaturedProjects from '@/components/projects/featured-projects';
@@ -7,17 +7,17 @@ import SectionHeader from '@/components/section-header';
 import CallToAction from '@/components/projects/CallToAction';
 
 export default function ProjectsPage() {
-  const [ref, inView] = useInView({
+  const { ref, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
+    rootMargin: '50px 0px',
   });
 
   return (
-    <>
-      {/* Projects Content */}
-      <section id='projects' className='py-20 bg-zinc-900 min-h-screen'>
+    <LazyMotion features={domAnimation} strict>
+      <section id='projects' className='py-20 bg-slate-800/50 min-h-screen'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-          <motion.div
+          <m.div
             ref={ref}
             initial='hidden'
             animate={inView ? 'visible' : 'hidden'}
@@ -38,7 +38,7 @@ export default function ProjectsPage() {
             <OtherProjects />
 
             {/* Call to Action */}
-            <motion.div
+            <m.div
               variants={{
                 hidden: { opacity: 0, y: 20 },
                 visible: {
@@ -50,10 +50,10 @@ export default function ProjectsPage() {
               className='text-center pt-8 border-t-2 border-slate-700/30 border-zinc-800'
             >
               <CallToAction />
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         </div>
       </section>
-    </>
+    </LazyMotion>
   );
 }
