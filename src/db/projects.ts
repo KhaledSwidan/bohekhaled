@@ -16,8 +16,8 @@ const projects = [
       'Tailwind CSS',
       'shadcn/ui',
     ],
-    liveUrl: 'https://boheky.vercel.app/',
-    githubUrl: 'https://github.com/KhaledSwidan/ecommerce',
+    liveUrl: 'https://boheky2.vercel.app/',
+    githubUrl: '',
     featured: true,
   },
   {
